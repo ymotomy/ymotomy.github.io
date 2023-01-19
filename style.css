@@ -1,7 +1,9 @@
+/*Paleta de colores: https://coolors.co/palette/335c67-fff3b0-e09f3e-9e2a2b-540b0e*/
+
 * {
   background-color: #335c67;
   text-align: center;
-  font-family: Helvetica;
+  font-family: Jost;
   color: #fff3b0;
 }
 
@@ -10,8 +12,11 @@ a:link {
   display: inline-block;
 }
 
-h1 {
-  margin-left: 150px;
-  margin-right: 100px;
+.titulo {
   background-color: #e09f3e;
+  text-align: center;
+  color: #fff3b0;
+  padding: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
 }
