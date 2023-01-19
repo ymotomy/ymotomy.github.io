@@ -1,16 +1,16 @@
-*{
-    background-color: #335c67;
-    text-align: center;
-    font-family: Helvetica;
-    color: #fff3b0
+* {
+  background-color: #335c67;
+  text-align: center;
+  font-family: Helvetica;
+  color: #fff3b0;
 }
 
-a:link{
-    text-decoration: none;
+a:link {
+  text-decoration: none;
 }
 
-h1{
-    margin-left: 150px;
-    margin-right: 100px;
-    background-color:#e09f3e; 
+h1 {
+  margin-left: 150px;
+  margin-right: 100px;
+  background-color: #e09f3e;
 }
