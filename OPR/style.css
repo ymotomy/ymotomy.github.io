@@ -1,0 +1,39 @@
+body {
+  font-family: Jost;
+  color: aliceblue;
+  background-color: dodgerblue;
+}
+
+#titulo {
+  text-align: center;
+  background-color: aliceblue;
+  color: dodgerblue;
+  margin: 50px;
+  padding: 5px;
+  border-radius: 7px;
+}
+
+a:link,
+a {
+  text-align: left;
+  text-decoration: none;
+  display: inline-block;
+  color: aliceblue;
+}
+
+a:hover {
+  color: rgb(177, 219, 255);
+  text-align: left;
+}
+
+.contenedor {
+    display: flex;
+    justify-content: center;
+}
+
+.facultades {
+  /* margin-left: 250px auto;
+  width: 500px; */
+  width: 500px;
+  padding: 20px;
+}
