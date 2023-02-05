@@ -6,6 +6,7 @@ body {
 
 a:link,
 a {
+  margin: 1px;
   text-decoration: none;
   display: inline-block;
   color: aliceblue;
