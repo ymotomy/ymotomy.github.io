@@ -1,0 +1,63 @@
+body{
+    font-family: Jost;
+    background-color: #FFFCF2;
+}
+
+#titulo{
+    text-align: center;
+}
+
+#titulo h1{
+    color:#252422;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+#titulo h3{
+    color:#EB5E28;
+    margin-top: 0;
+}
+
+.precios{
+    width: 225px;
+    color:#403D39
+}
+
+.precios h2{
+    margin-left: 20px;
+    /* margin-top: 0; */
+}
+
+.precios li {
+    margin-bottom: 0;
+    margin-left:20px
+}
+
+.precios p {
+    margin-top: 0;
+    margin-left:42px
+}
+
+.principal{
+    justify-content: center;
+    display: flex;
+}
+
+div div{
+    width: 25px;
+}
+
+footer{
+    text-align: center;
+    color: #9c978d;
+}
+
+a:link,
+a{
+    color:#EB5E28;
+    text-decoration: none;
+}
+
+a:hover{
+    color:#403D39;
+}
