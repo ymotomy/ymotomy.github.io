@@ -30,10 +30,12 @@ a:hover {
 .contenedor {
   justify-content: center;
   display: flex;
+  align-items: center;
 }
 
 .facultades {
   justify-content: flex-start;
+  /* text-align: center */
   padding: 20px;
   width: 550px;
 }
