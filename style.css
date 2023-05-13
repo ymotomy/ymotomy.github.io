@@ -24,3 +24,9 @@ a:link {
 p{
   font-size: 25px;
 }
+
+.contenedor {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
