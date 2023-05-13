@@ -1,0 +1,56 @@
+body{
+    font-family: Jost;
+    background-color: #FFFCF2;
+}
+
+#titulo{
+    text-align: center;
+}
+
+#titulo h1{
+    color:#252422;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+#titulo h3{
+    color:#EB5E28;
+    margin-top: 0;
+}
+
+#vis{
+    text-align: center;
+}
+
+#descripcion{
+    width: 400px;
+    color:#403D39;
+    text-align: justify;
+}
+
+#descripcion h2{
+    margin-left: 20px;
+    /* width: 25px; */
+    /* margin-top: 0; */
+}
+
+
+.principal{
+    justify-content: center;
+    display: flex;
+}
+
+footer{
+    text-align: center;
+    color: #9c978d;
+}
+
+a:link,
+a{
+    color:#EB5E28;
+    text-decoration: none;
+}
+
+a:hover{
+    color:#403D39;
+}

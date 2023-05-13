@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.js"></script>
+    <title>T03</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1> IMDB Movies </h1>
+
+        <h2>Visualization 1 - Clover per Genre</h2>
+        <div id="generator">
+            <button id="generate-data">Generate random data</button>
+        </div>
+
+        <!-- TRABAJAR AQUI -->
+        <div id="vis-1">
+        </div>
+        <!--  -->
+
+        <h2>Visualization 2 - DVD case per Movie</h2>
+        <div>
+            <button id="showCat1">Comedy</button>
+            <button id="showCat2">Romance</button>
+            <button id="showCat3">Action</button>
+        </div>
+        <div>
+            <button id="filter-rating">Movies with rating > 5</button>
+            <button id="filter-reset">Reset filter</button>
+        </div>
+        <div>
+            <span>Order by</span>
+            <select id="order-by">
+                <option value="default" selected>-</option>
+                <option value="alphabetically">Title</option>
+                <option value="antiguedad">Release Year</option>
+            </select>
+
+        </div>
+
+        <!-- TRABAJAR AQUI -->
+        <div id="vis-2">
+            <h4 id="selected"></h4>
+        </div>
+        <!--  -->
+    </div>
+    <script src="main.js"></script>
+    <script src="configuration.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+body {
+    margin: 0 auto;
+    /* Puedes cambiar el color de fondo (background-color) si lo deseas */
+    background: linear-gradient(#1A759F,#52B69A);
+    max-width: 1200px;
+    min-width: 500px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: #113149;
+}
+/* Paletas:
+/* https://coolors.co/palette/d9ed92-b5e48c-99d98c-76c893-52b69a-34a0a4-168aad-1a759f-1e6091-184e77 */
+/* https://coolors.co/palette/ef476f-ffd166-06d6a0-118ab2-073b4c */
+/*https://coolors.co/palette/264653-2a9d8f-e9c46a-f4a261-e76f51*/
+/* Completar este archivo con los que estime conveniente */
+
+button{
+    background-color: #D9ED92;
+    border: none;
+    border-radius: 5px;
+}
+
+select{
+    background-color: #D9ED92;
+    border: none;
+    border-radius: 5px;
+}
+
+.txt{
+    font-size: 12px;
+    color:#113149;
+    margin-left: 10px;
+    /* padding: 20px;
+    margin: 20px; */
+}

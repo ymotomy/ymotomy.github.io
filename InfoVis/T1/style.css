@@ -1,0 +1,35 @@
+body {
+    margin: 0 auto;
+    /* Puedes cambiar el color de fondo (background-color) si lo deseas */
+    /*background-color: #f9d3a7;*/
+    background: linear-gradient(#168aad, #99d98c);
+    max-width: 1200px;
+    min-width: 500px;
+    text-align: center;
+    font-family: Arial;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.column {
+    display: block;
+    padding: 10px;
+    margin: 10px;
+    width: 500px;
+}
+
+svg {
+    /*border: 1px solid gray;*/
+    background-color:white;
+    border:solid 7px black;
+}
+
+/* COMPLETAR CON EL CSS ADICIONAL QUE CONSIDERES NECESARIO */
+.texto{
+    font-family:Arial;
+    font-size:13px
+}
