@@ -14,45 +14,12 @@ let dataset = d3.csv('data/dataset3.csv', d => {
   }).then(data => {
     createVis1(data);
     createVis2(data);
-    createVis3(data);
+    createVis3(data, "none");
+
+    d3.select("#BGalaxy").on("click", () =>createVis3(data, "Galaxy"))
+    d3.select("#BGlobular-Cluster").on("click", () =>createVis3(data, "Globular Cluster"))
+    d3.select("#BOpen-Cluster").on("click", () =>createVis3(data, "Open Cluster"))
+    d3.select("#BNebula").on("click", () =>createVis3(data, "Nebula"))
+    d3.select("#BDouble-Star").on("click", () =>createVis3(data, "Double Star"))
+    d3.select("#BReset").on("click", () =>{createVis3(data, "none");reiniciarElementos()})
   });
-
-function preprocessingMoviesDataset(genre, filter_dataset) {
-    // Si la lista de datos está vacía, descargo el dataset
-    // y lo guardo en mi variable externa "DATASET_MOVIES".
-    if (DATASET_MOVIES.length == 0) {
-        d3.json(MoviesURL).then(dataset => {
-            // Como no pongo let antes, sobrescribo la variable anterior.
-            DATASET_MOVIES = dataset;
-            // Llamo de nuevo a preprocessingMoviesDataset 
-            // para que ahora si se ejecute cuando DATASET_MOVIES tenga datos
-            preprocessingMoviesDataset(genre, filter_dataset)
-        })
-        // Hacemos return para que la función no continue su ejecución
-        return 0;
-    }
-
-    let data = JSON.parse(JSON.stringify(DATASET_MOVIES));
-
-    // Cada vez que se oprime filtrar, se llama nuevamente
-    // a preprocessingMoviesDataset con filtro=true
-    d3.select("#filter-rating").on("click", (event) => {
-        preprocessingMoviesDataset(genre, true);
-    })
-
-    // Cada vez que se oprime Restaurar filtro, se llama nuevamente
-    // a preprocessingMoviesDataset con filtro=false
-    d3.select("#filter-reset").on("click", (event) => {
-        preprocessingMoviesDataset(genre, false);
-    })
-
-    // Cada vez que cambia el selector de orden, se llama nuevamente
-    // a createDVDs para que actualice la visualización
-    d3.select("#order-by").on("change", (event) => {
-        createVis2(data, genre, filter_dataset);
-    })
-
-    // Llamamos a la segunda función encargada de crear los datos
-    createVis2(data, genre, filter_dataset);
-}
-

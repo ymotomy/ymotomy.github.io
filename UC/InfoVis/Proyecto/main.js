@@ -9,17 +9,22 @@ const MARGIN = {
 var color = {
   Galaxy: "#f72585",
   "Globular Cluster": "#00fff5",
-  "Open Cluster": "#0077b6",
+  "Open Cluster": "#66FF00",
   Nebula: "#d00000",
-  "Double star": "#66FF00",
+  "Double star": "#FFD700",
 };
+
+let object_type = null;
+const TIEMPO_TRANSICION = 500;
 // VISUALIZACION 1 ----------------------------------------------------------------------------------------------------------------------
 let zoomActual = d3.zoomIdentity;
+const radioTierra = 45;
+const radioAstro = 50;
 
 const WIDTH1info = 295,
-  HEIGHT1info = 400,
+  HEIGHT1info = 300,
   WIDTH1objects = 895,
-  HEIGHT1objects = 400;
+  HEIGHT1objects = 300;
 
 const SVG1info = d3.select("#vis-1").append("svg").attr("id", "info-1");
 d3.select("#vis-1").append("svg").style("width", "20px");
@@ -30,52 +35,79 @@ SVG1objects.attr("width", WIDTH1objects).attr("height", HEIGHT1objects);
 const contenedorImagenes = SVG1objects.append("g").attr("class", "img");
 const contenedorEjeTiempo = SVG1objects.append("g");
 
+SVG1info.append("g")
+  .append("text")
+  .attr("x", "10")
+  .attr("y", "30")
+  .text("Acerca de")
+  .style("font-size", "20px")
+  .style("font-weight", "bold")
+  .style("fill", "white");
+
 const info1 = SVG1info.append("g").style("visibility", "hidden");
 const info11 = info1
   .append("text")
   .attr("class", "txt")
-  .attr("x", "10")
-  .attr("y", "60"); //Common_Name
+  .attr("x", "105")
+  .attr("y", "30")
+  .style("font-size", "20px")
+  .style("font-weight", "bold"); //Messier
 const info12 = info1
   .append("text")
   .attr("class", "txt")
   .attr("x", "10")
-  .attr("y", "90"); //Messier
+  .attr("y", "70"); //Common_Name
 const info13 = info1
   .append("text")
   .attr("class", "txt")
   .attr("x", "10")
-  .attr("y", "120"); //NGC
+  .attr("y", "100"); //NGC
 const info14 = info1
   .append("text")
   .attr("class", "txt")
   .attr("x", "10")
-  .attr("y", "150"); //Year
+  .attr("y", "130"); //Year
 const info15 = info1
   .append("text")
   .attr("class", "txt")
   .attr("x", "10")
-  .attr("y", "180"); //OBject_Type
+  .attr("y", "160"); //OBject_Type
 const info16 = info1
   .append("text")
   .attr("class", "txt")
   .attr("x", "10")
-  .attr("y", "210"); //Constellation
+  .attr("y", "190"); //Constellation
 const info17 = info1
   .append("text")
   .attr("class", "txt")
   .attr("x", "10")
-  .attr("y", "240"); //Distance
+  .attr("y", "220"); //Distance
 const info18 = info1
   .append("text")
   .attr("class", "txt")
   .attr("x", "10")
-  .attr("y", "270"); //Magnitude
+  .attr("y", "250"); //Magnitude
 const info19 = info1
   .append("text")
   .attr("class", "txt")
   .attr("x", "10")
-  .attr("y", "300"); //Discoverer
+  .attr("y", "280"); //Discoverer
+
+function select_Messier(M) {
+  console.log(M);
+  for (i = 1; i < 111; i++) {
+    if (".M" + i != M) {
+      d3.selectAll(`.M${i}`)
+        .style("filter", "saturate(10%)")
+        .style("opacity", "0.1");
+    } else {
+      d3.selectAll(M).style("filter", "saturate(100%)").style("opacity", "1");
+    }
+    d3.selectAll(`.line`)
+      .style("filter", "saturate10%)")
+      .style("opacity", "0.1");
+  }
+}
 
 function createVis1(dataset) {
   const escalaDistance = d3
@@ -88,61 +120,65 @@ function createVis1(dataset) {
   // Eje X
   const ejeX = d3.axisBottom(escalaDistance);
   contenedorEjeTiempo
-  .attr("transform", `translate(${MARGIN.left}, ${HEIGHT1objects / 2 + 100})`)
-  .call(ejeX);
+    .attr("transform", `translate(${MARGIN.left}, ${HEIGHT1objects / 2 + 75})`)
+    .call(ejeX);
 
-  contenedorImagenes
+    contenedorImagenes
     .selectAll("image")
     .data(dataset)
-    .join(
-      (enter) => {
-        enter
-          .append("image")
-          .attr("id", (d) => d.Messier)
-          .attr("xlink:href", (d) => "img/" + d.Messier + ".png") // Reemplaza "imagenURL" por la propiedad de tu objeto que contiene la URL de la imagen
-          .attr("x", (d, i) => escalaDistance(d.Distance)) // Ajusta la posición horizontal de la imagen
-          .attr("y", HEIGHT1objects / 2 - 44) // Ajusta la posición vertical de la imagen
-          .attr("width", 88) // Ajusta el ancho de la imagen
-          .attr("height", 88) // Ajusta la altura de la imagen
-          .on("click", (event, d) => {
-            info11.text(`${d.Name}`); //Common_Name
-            info12.text(`${d.Messier}`); //Messier
-            info13.text(`${d.NGC}`); //NGC
-            info14.text(`Descubierto en: ${d.Year}`); //Year
-            info15.text(`Tipo de Objeto: ${d.Object_Type}`); //OBject_Type
-            info16.text(`Constelación: ${d.Constellation}`); //Constellation
-            info17.text(`Distancia: ${d.Distance} al`); //Distance
-            info18.text(`Magnitud: ${d.Magnitude}`); //Magnitude
-            info19.text(`Descubierto por: ${d.Discoverer}`); //Discoverer
-            info1.style("visibility", "visible");
-          })
-          .on("mouseover", function (event, d) {
-            info11.text(`${d.Name}`); //Common_Name
-            info12.text(`${d.Messier}`); //Messier
-            info13.text(`${d.NGC}`); //NGC
-            info14.text(`Descubierto en: ${d.Year}`); //Year
-            info15.text(`Tipo de Objeto: ${d.Object_Type}`); //OBject_Type
-            info16.text(`Constelación: ${d.Constellation}`); //Constellation
-            info17.text(`Distancia: ${d.Distance} al`); //Distance
-            info18.text(`Magnitud: ${d.Magnitude}`); //Magnitude
-            info19.text(`Descubierto por: ${d.Discoverer}`); //Discoverer
-            info1.style("visibility", "visible");
-          })
-          ;
-      },
-      (update) => {
-        update.attr("x", (d, i) => escalaDistance(d.Distance)); // Ajusta la posición horizontal de la imagen
-      },
-      (exit) => exit.remove()
-    );
+    .enter()
+    .append("image")
+    .attr("class", (d) => "img " + d.Messier)
+    .attr("xlink:href", (d) => "img/" + d.Messier + ".png")
+    .attr("x", (d, i) => escalaDistance(d.Distance))
+    .attr("y", HEIGHT1objects / 2 - radioAstro*1.5)
+    .attr("width", radioAstro * 2)
+    .attr("height", radioAstro * 2)
+    .on("click", (event, d) => {
+      select_Messier(`.${d.Messier}`);
+      info1.style("visibility", "hidden");
+      updateInfo(d)
+    });
+
+    // .on("mouseover", function (event, d) {
+    //   if (selectedElement !== d) {
+    //     // Muestra la información solo si el elemento no está seleccionado
+    //     updateInfo(d);
+    //   }
+    // })
+    // .on("mouseout", function (event, d) {
+    //   if (selectedElement !== d) {
+    //     // Oculta la información solo si el elemento no está seleccionado
+    //     info1.style("visibility", "hidden");
+    //   }
+    // });
+
+  function updateInfo(d) {
+    info12.text(`${d.Name}`);
+    info11.text(`${d.Messier}`);
+    info13.text(`${d.NGC}`);
+    info14.text(`Descubierto en: ${d.Year}`);
+    info15.text(`Tipo de Objeto: ${d.Object_Type}`);
+    info16.text(`Constelación: ${d.Constellation}`);
+    info17.text(`Distancia: ${d.Distance} al`);
+    info18.text(`Magnitud: ${d.Magnitude}`);
+    info19.text(`Descubierto por: ${d.Discoverer}`);
+    info1.style("visibility", "visible");
+  }
   contenedorImagenes
     .append("image")
     .attr("xlink:href", "img/earth.png")
-    .attr("x", 0) // Ajusta la posición horizontal de la imagen
-    .attr("y", HEIGHT1objects / 2 - 52) // Ajusta la posición vertical de la imagen
-    .attr("width", 104) // Ajusta el ancho de la imagen
-    .attr("height", 104) // Ajusta la altura de la imagen
     .attr("class", "earth")
+    .attr("x", 0) // Ajusta la posición horizontal de la imagen
+    .attr("y", HEIGHT1objects / 2 - radioTierra*1.5) // Ajusta la posición vertical de la imagen
+    .attr("width", radioTierra * 2) // Ajusta el ancho de la imagen
+    .attr("height", radioTierra * 2) // Ajusta la altura de la imagen
+    .on("click", (event) => {
+      reiniciarElementos()
+      
+        contenedorImagenes.selectAll("image").style("filter", "saturate(100%)").style("opacity", "1");
+        info1.style("visibility", "hidden");
+      });
 
   const manejadorZoom = (evento) => {
     const transformacion = evento.transform;
@@ -151,26 +187,30 @@ function createVis1(dataset) {
 
     // Aplicar la transformación solo en el eje X a las imágenes
     contenedorEjeTiempo
-    .attr("transform", `translate(${MARGIN.left}, ${HEIGHT1objects / 2 + 100})`)
-    .call(ejeX.scale(transformacion.rescaleX(escalaDistance)));
+      .call(ejeX.scale(transformacion.rescaleX(escalaDistance)));
     contenedorImagenes
       .selectAll("image")
       .data(dataset)
-      .attr("x", (d) => escalaX * escalaDistance(d.Distance) + traslacionX);
-    contenedorImagenes.select(".earth")
-      .attr("x", traslacionX) // Actualiza la posición horizontal según la traslación del zoom
-      
+      .attr("xlink:href", (d) => "img/" + d.Messier + ".png")
+      .attr("x", (d) => escalaX * escalaDistance(d.Distance) + traslacionX)
+      .attr("y", HEIGHT1objects / 2 - radioAstro*1.5) // Mantener la posición vertical fija
+      .attr("class", (d) => "img " + d.Messier);
+    contenedorImagenes.select(".earth").attr("x", traslacionX); // Actualizar la posición horizontal según la traslación del zoom
   };
 
   // Inicializar Zoom
   const zoom = d3
     .zoom()
-    .extent([[0, 0], [WIDTH1objects, HEIGHT1objects]])
-    .translateExtent([[0, 0], [WIDTH1objects, HEIGHT1objects]])
-    .scaleExtent([1, 110])
-    .on("zoom", manejadorZoom)
-    .on("start", () => console.log("empecé"))
-    .on("end", () => console.log("Terminé"));
+    .extent([
+      [0, 0],
+      [WIDTH1objects, HEIGHT1objects],
+    ])
+    .translateExtent([
+      [0, 0],
+      [WIDTH1objects, HEIGHT1objects],
+    ])
+    .scaleExtent([1, 150])
+    .on("zoom", manejadorZoom);
   SVG1objects.call(zoom);
 }
 
@@ -178,7 +218,29 @@ function createVis1(dataset) {
 const WIDTH2 = 800,
   HEIGHT2 = 650,
   WIDTH2info = 295,
-  HEIGHT2info = 225;
+  HEIGHT2info = 250;
+
+function reiniciarElementos() {
+  var elementos = [
+    "Galaxy",
+    "Globular-Cluster",
+    "Open-Cluster",
+    "Nebula",
+    "Double-star",
+  ];
+  for (let elemento of elementos) {
+    d3.selectAll(`.${elemento}`)
+      .style("filter", "saturate(100%)")
+      .style("opacity", "1");
+    d3.selectAll(`.line`)
+      .style("filter", "saturate(100%)")
+      .style("opacity", "1");
+    d3.selectAll(`.img`)
+      .style("filter", "saturate(100%)")
+      .style("opacity", "1");
+    info1.style("visibility", "hidden");
+    object_type = null;
+  }}
 
 const SVG2 = d3.select("#vis-2").append("svg").attr("id", "gl");
 SVG2.attr("width", WIDTH2).attr("height", HEIGHT2);
@@ -187,72 +249,124 @@ const SVG2info = d3.select("#vis-2").append("svg").attr("id", "info-2");
 SVG2info.attr("width", WIDTH2info).attr("height", HEIGHT2info);
 
 const info2 = SVG2info.append("g");
+const info20 = info2
+  .append("text")
+  .attr("class", "txt")
+  .attr("x", 15)
+  .attr("y", 30);
+
+info20
+  .html("Selecciona un color para resaltar los")
+  .append("tspan")
+  .attr("x", 15)
+  .attr("dy", "1.2em")
+  .text("objetos de ese tipo");
 const info21 = info2
   .append("text")
   .attr("class", "txt")
   .attr("x", "35")
-  .attr("y", "60")
+  .attr("y", "75")
   .text("Galaxy");
 const info22 = info2
   .append("text")
   .attr("class", "txt")
   .attr("x", "35")
-  .attr("y", "90")
+  .attr("y", "105")
   .text("Globular Cluster");
 const info23 = info2
   .append("text")
   .attr("class", "txt")
   .attr("x", "35")
-  .attr("y", "120")
+  .attr("y", "135")
   .text("Open Cluster");
 const info24 = info2
   .append("text")
   .attr("class", "txt")
   .attr("x", "35")
-  .attr("y", "150")
+  .attr("y", "165")
   .text("Nebula");
 const info25 = info2
   .append("text")
   .attr("class", "txt")
   .attr("x", "35")
-  .attr("y", "180")
+  .attr("y", "195")
   .text("Double Star");
+const info26 = info2
+  .append("text")
+  .attr("class", "txt")
+  .attr("x", "35")
+  .attr("y", "225")
+  .text("Reiniciar Filtro");
 const circle21 = info2
   .append("circle")
-  .attr("class", "circle")
+  .attr("class", Object.keys(color)[0])
+  .attr("id", "circle2")
   .attr("fill", color[Object.keys(color)[0]])
   .attr("cx", "20")
-  .attr("cy", "54")
-  .attr("r", "7");
+  .attr("cy", "70")
+  .attr("r", "7")
+  .on("click", (event, d) => {
+    select_object(createClass(Object.keys(color)[0]));
+    object_type = Object.keys(color)[0];
+  });
 const circle22 = info2
   .append("circle")
-  .attr("class", "circle")
+  .attr("class", createClass(Object.keys(color)[1]))
+  .attr("id", "circle2")
   .attr("fill", color[Object.keys(color)[1]])
   .attr("cx", "20")
-  .attr("cy", "84")
-  .attr("r", "7");
+  .attr("cy", "100")
+  .attr("r", "7")
+  .on("click", (event, d) => {
+    select_object(createClass(Object.keys(color)[1]));
+    object_type = Object.keys(color)[1];
+  });
 const circle23 = info2
   .append("circle")
-  .attr("class", "circle")
+  .attr("class", createClass(Object.keys(color)[2]))
+  .attr("id", "circle2")
   .attr("fill", color[Object.keys(color)[2]])
   .attr("cx", "20")
-  .attr("cy", "114")
-  .attr("r", "7");
+  .attr("cy", "130")
+  .attr("r", "7")
+  .on("click", (event, d) => {
+    select_object(createClass(Object.keys(color)[2]));
+    object_type = Object.keys(color)[2];
+  });
 const circle24 = info2
   .append("circle")
-  .attr("class", "circle")
+  .attr("class", createClass(Object.keys(color)[3]))
+  .attr("id", "circle2")
   .attr("fill", color[Object.keys(color)[3]])
   .attr("cx", "20")
-  .attr("cy", "144")
-  .attr("r", "7");
+  .attr("cy", "160")
+  .attr("r", "7")
+  .on("click", (event, d) => {
+    select_object(createClass(Object.keys(color)[3]));
+    object_type = Object.keys(color)[3];
+  });
 const circle25 = info2
   .append("circle")
-  .attr("class", "circle")
+  .attr("class", createClass(Object.keys(color)[4]))
+  .attr("id", "circle2")
   .attr("fill", color[Object.keys(color)[4]])
   .attr("cx", "20")
-  .attr("cy", "174")
-  .attr("r", "7");
-
+  .attr("cy", "190")
+  .attr("r", "7")
+  .on("click", (event, d) => {
+    select_object(createClass(Object.keys(color)[4]));
+    object_type = Object.keys(color)[4];
+  });
+const circle26 = info2
+  .append("circle")
+  .attr("fill", "white")
+  .attr("id", "circle2")
+  .attr("cx", "20")
+  .attr("cy", "220")
+  .attr("r", "7")
+  .on("click", () => {
+    reiniciarElementos()
+  });
 SVG2.append("text")
   .attr("x", 20)
   .attr("y", 40)
@@ -277,6 +391,38 @@ function ParseoYear(year) {
     return parseInt(year);
   }
 }
+function createClass(object) {
+  if (object.includes(" ")) {
+    return object.replace(" ", "-");
+  } else {
+    return object;
+  }
+}
+function select_object(clase) {
+  var elementos = [
+    "Galaxy",
+    "Globular-Cluster",
+    "Open-Cluster",
+    "Nebula",
+    "Double-star",
+  ];
+  elementos = elementos.filter((elemento) => elemento != clase);
+  d3.selectAll(`.${elementos[0]}`)
+    .style("filter", "saturate(40%)")
+    .style("opacity", "0.4");
+  d3.selectAll(`.${elementos[1]}`)
+    .style("filter", "saturate(40%)")
+    .style("opacity", "0.4");
+  d3.selectAll(`.${elementos[2]}`)
+    .style("filter", "saturate(40%)")
+    .style("opacity", "0.4");
+  d3.selectAll(`.${elementos[3]}`)
+    .style("filter", "saturate(40%)")
+    .style("opacity", "0.4");
+  d3.selectAll(`.${clase}`)
+    .style("filter", "saturate(100%)")
+    .style("opacity", "1");
+}
 
 function createVis2(dataset) {
   dataset = dataset.sort((a, b) => {
@@ -300,7 +446,7 @@ function createVis2(dataset) {
     .selectAll("line")
     .attr("x1", WIDTH2 - 2 * MARGIN.left)
     .attr("stroke-dasharray", "5")
-    .attr("opacity", 0.5);
+    .attr("opacity", 0.4);
 
   // EJE X------------------------------------------------------------------------------------------
   const escalaX = d3
@@ -320,7 +466,7 @@ function createVis2(dataset) {
     .selectAll("line")
     .attr("y1", -(HEIGHT2 - 2 * MARGIN.bottom))
     .attr("stroke-dasharray", "5")
-    .attr("opacity", 0.5);
+    .attr("opacity", 0.4);
 
   contenedor2.raise();
   //AGREGAMOS LOS CIRCULOS-------------------------------------------------------------------------
@@ -336,6 +482,7 @@ function createVis2(dataset) {
     .data(dataset)
     .join("circle")
     .attr("r", 3)
+    .attr("class", (d) => d.Messier + " " + createClass(d.Object_Type))
     .attr("fill", (d) => color[d.Object_Type])
     .attr("cx", (d) => escalaX(ParseoYear(d.Year)))
     .attr("cy", (d) => escalaY(frecuenciaObjects(d.Object_Type)))
@@ -362,7 +509,7 @@ function createVis2(dataset) {
       .append("path")
       .data([data_filter])
       .attr("d", line)
-      .attr("class", "line")
+      .attr("class", "line " + createClass(keys[i]))
       .attr("stroke", color[keys[i]])
       .attr("fill", "transparent")
       .attr("stroke-width", 3);
@@ -371,15 +518,17 @@ function createVis2(dataset) {
 
 // VISUALIZACION 3 ----------------------------------------------------------------------------------------------------------------------
 const WIDTH3 = 1200,
-  HEIGHT3 = 800;
+  HEIGHT3 = 900;
 const forceStrength = 0.03;
 
 const SVG3 = d3.select("#vis-3").append("svg").attr("id", "cp");
-
 SVG3.attr("width", WIDTH3).attr("height", HEIGHT3);
 const contenedor3 = SVG3.append("g").attr("class", "img");
-function createVis3(dataset) {
-  console.log(dataset);
+
+function createVis3(dataset, type) {
+  // object_type = type;
+  if (type != "none"){
+  dataset = d3.filter(dataset, (d) =>d.Object_Type.includes(type));}
 
   const rmin = d3.min(dataset, (d) => d.Dimensions);
   const rmax = d3.max(dataset, (d) => d.Dimensions);
@@ -393,42 +542,66 @@ function createVis3(dataset) {
     return Math.pow(escalaRadio(d.Dimensions), 2.0) * 0.01;
   }
 
-  var defs = SVG3.append("defs");
-
   contenedor3
-    .selectAll("pattern")
-    .data(dataset)
-    .enter()
-    .append("pattern")
-    .attr("id", (d) => "img" + d.Messier)
-    .attr("width", "1")
-    .attr("height", "1")
-    .attr("patternUnits", "objectBoundingBox")
-    .append("image")
-    .attr("href", (d) => "img/" + d.Messier + ".png")
-    .attr("width", (d) => 2 * escalaRadio(d.Dimensions))
-    .attr("height", (d) => 2 * escalaRadio(d.Dimensions));
+  .selectAll("pattern")
+  .data(dataset)
+  .join(
+    (enter) =>
+      enter
+        .append("pattern")
+        .attr("id", (d) => "img" + d.Messier)
+        .attr("class", (d) => d.Messier + " " + createClass(d.Object_Type))
+        .attr("width", "1")
+        .attr("height", "1")
+        .attr("patternUnits", "objectBoundingBox")
+        .append("image")
+        .attr("href", (d) => "img/" + d.Messier + ".png")
+        .attr("width", (d) => 2 * escalaRadio(d.Dimensions))
+        .attr("height", (d) => 2 * escalaRadio(d.Dimensions))
+        .transition()
+        .duration(TIEMPO_TRANSICION),
+    (update) =>
+      update
+        .attr("id", (d) => "img" + d.Messier)
+        .attr("class", (d) => d.Messier + " " + createClass(d.Object_Type))
+        .attr("width", "1")
+        .attr("height", "1")
+        .attr("patternUnits", "objectBoundingBox")
+        .append("image")
+        .attr("href", (d) => "img/" + d.Messier + ".png")
+        .attr("width", (d) => 2 * escalaRadio(d.Dimensions))
+        .attr("height", (d) => 2 * escalaRadio(d.Dimensions))
+        .transition()
+        .duration(TIEMPO_TRANSICION),
+    (exit) => exit.remove()
+  )
+  .on("click", (event, d) => select_object(createClass(d.Object_Type)));
 
-  var node = contenedor3
-    .append("g")
-    .selectAll("circle")
-    .data(dataset)
-    .enter()
-    .append("circle")
-    .attr("class", (d) => d.Messier)
-    .attr("r", (d) => escalaRadio(d.Dimensions))
-    .attr("cx", WIDTH3 / 2)
-    .attr("cy", HEIGHT3 / 2)
-    .attr("fill", (d) => "url(#img" + d.Messier + ")")
-    .attr("stroke", (d) => color[d.Object_Type])
-    .style("stroke-width", 2)
-    .call(
-      d3
-        .drag() // call specific function when circle is dragged
-        .on("start", dragstarted)
-        .on("drag", dragged)
-        .on("end", dragended)
-    );
+var node = contenedor3
+  .append("g")
+  .selectAll("pattern")
+  .data(dataset)
+  .join(
+    (enter) =>
+      enter
+        .append("circle")
+        .attr("class", (d) => d.Messier + " " + createClass(d.Object_Type))
+        .attr("r", (d) => escalaRadio(d.Dimensions))
+        .attr("cx", WIDTH3 / 2)
+        .attr("cy", HEIGHT3 / 2)
+        .attr("fill", (d) => "url(#img" + d.Messier + ")")
+        .attr("stroke", (d) => color[d.Object_Type])
+        .style("stroke-width", 2),
+    (exit) => exit.remove()
+  )
+  .on("click", (event, d) => select_object(createClass(d.Object_Type)))
+  .call(
+    d3
+      .drag()
+      .on("start", dragstarted)
+      .on("drag", dragged)
+      .on("end", dragended)
+  );
 
   const simulation = d3
     .forceSimulation()
@@ -456,7 +629,7 @@ function createVis3(dataset) {
     )
     .force(
       "collision",
-      d3.forceCollide().radius((d) => escalaRadio(d.Dimensions) + 2)
+      d3.forceCollide().radius((d) => escalaRadio(d.Dimensions) + 4)
     );
 
   simulation.nodes(dataset).on("tick", function (d) {
@@ -470,17 +643,17 @@ function createVis3(dataset) {
   });
 
   // What happens when a circle is dragged?
-  function dragstarted(d) {
-    if (!d3.event.active) simulation.alphaTarget(0.03).restart();
+  function dragstarted(event, d) {
+    if (!event.active) simulation.alphaTarget(0.1).restart();
     d.fx = d.x;
     d.fy = d.y;
   }
-  function dragged(d) {
-    d.fx = d3.event.x;
-    d.fy = d3.event.y;
+  function dragged(event, d) {
+    d.fx = event.x;
+    d.fy = event.y;
   }
-  function dragended(d) {
-    if (!d3.event.active) simulation.alphaTarget(0.03);
+  function dragended(event, d) {
+    if (!event.active) simulation.alphaTarget(0.1);
     d.fx = null;
     d.fy = null;
   }
@@ -493,9 +666,15 @@ function createVis3(dataset) {
   const zoom = d3
     .zoom()
     .scaleExtent([1, 8])
-    .on("zoom", manejadorZoom)
-    .on("start", () => console.log("empecé"))
-    .on("end", () => console.log("Terminé"));
+    .extent([
+      [0, 0],
+      [WIDTH3, HEIGHT3],
+    ])
+    .translateExtent([
+      [0, 0],
+      [WIDTH3, HEIGHT3],
+    ])
+    .on("zoom", manejadorZoom);
   SVG3.call(zoom);
 }
 

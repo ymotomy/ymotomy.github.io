@@ -397,6 +397,7 @@ function createDVDs(dataset, genre, filter_dataset) {
   //-------------------------------------------------------------------------------------------------
   //  "ORDER_BY" indica bajo qué atributo ordenar
   let ORDER_BY = document.getElementById("order-by").selectedOptions[0].value;
+  console.log(ORDER_BY)
   // Filtramos los datos según el genero seleccionado
   var dataset = d3.filter(dataset, (d) => d.Genres.includes(genre));
   // Acotamos los datos a 30
