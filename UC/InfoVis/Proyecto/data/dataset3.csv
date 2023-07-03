@@ -1,0 +1,111 @@
+Messier,NGC,Object_Type,Magnitude,Constellation,Distance,Discoverer,Year,Name,Dimensions
+M1,NGC 1952,Supernova remnant,8,Taurus,6500,Bévis,1731,Crab Nebula,24.0
+M2,NGC 7089,Globular Cluster,6,Aquarius,55000,Maraldi,1746,,166.41
+M3,NGC 5272,Globular Cluster,6,Canes Venatici,48500,Messier,1764,,262.44
+M4,NGC 6121,Globular Cluster,5,Scorpius,9900,Chéseaux,1746,,691.69
+M5,NGC 5904,Globular Cluster,5,Serpens,24800,Kirch,1702,,302.76
+M6,NGC 6504,Open Cluster,4,Scorpius,1300,Hodierna,1654,Butterfly Cluster,625.0
+M7,NGC 6475,Open Cluster,3,Scorpius,780,Ptolémée,No Establecido,Ptolemy Cluster,6400.0
+M8,NGC 6523,Emission Nebula,5,Sagittarius,4850,Flamsteed,1680,Lagoon Nebula,3600.0
+M9,NGC 6333,Globular Cluster,7,Ophiuchus,25800,Messier,1764,,86.49
+M10,NGC 6254,Globular Cluster,6,Ophiuchus,16300,Messier,1764,,228.01
+M11,NGC 6705,Open Cluster,5,Scutum,5600,Kirch,1681,Wild Duck Cluster,196.0
+M12,NGC 6218,Globular Cluster,6,Ophiuchus,18900,Messier,1764,,210.25
+M13,NGC 6205,Globular Cluster,5,Hercules,23500,Halley,1714,Hercules Globular Cluster,275.56
+M14,NGC 6402,Globular Cluster,7,Ophiuchus,24000,Messier,1764,,136.89
+M15,NGC 7078,Globular Cluster,6,Pegasus,49500,Maraldi,1746,,151.29
+M16,NGC 6611,Emission Nebula,6,Serpens,5870,Chéseaux,1746,Eagle Nebula Cluster,49.0
+M17,NGC 6618,Emission Nebula,6,Sagittarius,5870,Chéseaux,1746,Horseshoe Nebula,121.0
+M18,NGC 6613,Open Cluster,6,Sagittarius,4900,Messier,1764,,81.0
+M19,NGC 6273,Globular Cluster,7,Ophiuchus,22500,Messier,1764,,182.25
+M20,NGC 6514,Emission Nebula,6,Sagittarius,2300,Le Gentil,1749,Trifid Nebula,784.0
+M21,NGC 6531,Open Cluster,5,Sagittarius,4200,Messier,1764,,169.0
+M22,NGC 6656,Globular Cluster,5,Sagittarius,7800,Ihle,1665,,576.0
+M23,NGC 6494,Open Cluster,5,Sagittarius,2150,Messier,1764,,729.0
+M24,NGC 6603,Open Cluster,11,Sagittarius,16000,Messier,1764,Milky Way Patch,8100.0
+M25,IC4725,Open Cluster,4,Sagittarius,2060,Chéseaux,1746,,1600.0
+M26,NGC 6694,Open Cluster,8,Scutum,5100,Le Gentil,1749,,225.0
+M27,NGC 6853,Planetary Nebula,8,Vulpecula,980,Messier,1764,Dumbbell Nebula,45.6
+M28,NGC 6626,Globular Cluster,6,Sagittarius,19000,Messier,1764,,125.44
+M29,NGC 6913,Open Cluster,6,Cygnus,4100,Messier,1764,,49.0
+M30,NGC 7099,Globular Cluster,7,Capricornus,41000,Messier,1764,,121.0
+M31,NGC 224,Galaxy,3,Andromeda,2500000,No Registrado,No Establecido,Andromeda Galaxy,11214.0
+M32,NGC 221,Galaxy,8,Andromeda,2500000,Le Gentil,1749,,48.0
+M33,NGC 598,Galaxy,5,Triangulum,2723000,Messier,1764,Triangulum Galaxy,3285.0
+M34,NGC 1039,Open Cluster,5,Perseus,1450,Messier,1764,,1225.0
+M35,NGC 2168,Open Cluster,5,Gemini,2800,Chéseaux,1746,,784.0
+M36,NGC 1960,Open Cluster,6,Auriga,3700,Hodierna,1654,,144.0
+M37,NGC 2099,Open Cluster,5,Auriga,3600,Hodierna,1654,,576.0
+M38,NGC 1912,Open Cluster,6,Auriga,2750,Hodierna,1654,,441.0
+M39,NGC 7092,Open Cluster,4,Cygnus,880,Le Gentil,1750,,1024.0
+M40,Winnecke 4,Double star,9,Ursa Major,510,Hevelius,1660,,2401.0
+M41,NGC 2287,Open Cluster,4,Canis Major,1600,Hodierna,1654,,1444.0
+M42,NGC 9176,Emission Nebula,4,Orion,1500,Peiresc,1610,Great Orion Nebula,5100.0
+M43,NGC 1982,Reflection Nebula,9,Orion,1500,Mairan,1750,Mairan Nebula,300.0
+M44,NGC 2632,Open Cluster,3,Cancer,520,No Registrado,No Establecido,Beehive Cluster,9025.0
+M45,,Open Cluster,1,Taurus,410,Messier,No Establecido,Pleiades,12100.0
+M46,NGC 2437,Open Cluster,6,Puppis,3200,Messier,1771,,729.0
+M47,NGC 2422,Open Cluster,4,Puppis,1750,Hodierna,1654,,900.0
+M48,NGC 2548,Open Cluster,5,Hydra,1500,Messier,1771,,2916.0
+M49,NGC 4472,Galaxy,8,Virgo,41000000,Messier,1771,,67.5
+M50,NGC 2323,Open Cluster,5,Monoceros,2950,Cassini,1710,,256.0
+M51,NGC 5194,Galaxy,8,Canes Venatici,37000000,Messier,1773,Whirlpool Galaxy,77.0
+M52,NGC 7654,Open Cluster,6,Cassiopeia,3000,Messier,1774,,169.0
+M53,NGC 5024,Globular Cluster,7,Coma Berenices,69000,Bode,1775,,158.76
+M54,NGC 6715,Globular Cluster,7,Sagittarius,49000,Messier,1778,,82.81
+M55,NGC 6809,Globular Cluster,7,Sagittarius,20000,Lacaille,1751,,361.0
+M56,NGC 6779,Globular Cluster,8,Lyra,45600,Messier,1779,,50.41
+M57,NGC 6720,Planetary Nebula,9,Lyra,1410,Darquier,1779,Ring Nebula,1.4
+M58,NGC 4579,Galaxy,9,Virgo,41000000,Messier,1779,,24.75
+M59,NGC 4621,Galaxy,9,Virgo,41000000,Koehler,1779,,17.5
+M60,NGC 4649,Galaxy,8,Virgo,41000000,Koehler,1779,,42.0
+M61,NGC 4303,Galaxy,9,Virgo,41000000,Oriani,1779,,33.0
+M62,NGC 6266,Globular Cluster,6,Ophiuchus,22500,Messier,1771,,198.81
+M63,NGC 5055,Galaxy,8,Canes Venatici,23800000,Méchain,1779,Sunflower Galaxy,60.0
+M64,NGC 4826,Galaxy,8,Coma Berenices,11800000,Bode,1775,Blackeye Galaxy,50.22
+M65,NGC 3623,Galaxy,9,Leo,29000000,Méchain,1780,,12.0
+M66,NGC 3627,Galaxy,9,Leo,29000000,Méchain,1780,,20.0
+M67,NGC 2682,Open Cluster,6,Cancer,2600,Koehler,1778,,900.0
+M68,NGC 4590,Globular Cluster,8,Hydra,36000,Méchain,1780,,144.0
+M69,NGC 6637,Globular Cluster,7,Sagittarius,23500,Lacaille,1751,,50.41
+M70,NGC 6681,Globular Cluster,8,Sagittarius,65000,Messier,1780,,60.84
+M71,NGC 6838,Globular Cluster,8,Sagitta,13000,Chéseaux,1746,,51.84
+M72,NGC 6981,Globular Cluster,9,Aquarius,62000,Méchain,1780,,34.81
+M73,NGC 6994,Open Cluster,9,Aquarius,2500,Messier,1780,,7.84
+M74,NGC 628,Galaxy,9,Pisces,26000000,Méchain,1780,,96.9
+M75,NGC 6864,Globular Cluster,8,Sagittarius,78500,Méchain,1780,,36.0
+M76,NGC 650,Planetary Nebula,10,Perseus,8200,Méchain,1780,Butterfly Nebula,4.86
+M77,NGC 1068,Galaxy,8,Cetus,52000000,Méchain,1780,,42.0
+M78,NGC 2068,Reflection Nebula,8,Orion,1630,Méchain,1780,,48.0
+M79,NGC 1904,Globular Cluster,8,Lepus,43400,Méchain,1780,,75.69
+M80,NGC 6093,Globular Cluster,7,Scorpius,36000,Messier,1781,,79.21
+M81,NGC 3031,Galaxy,6,Ursa Major,8500000,Bode,1774,Bode Galaxy,210.0
+M82,NGC 3034,Galaxy,8,Ursa Major,8500000,Bode,1774,Cigar Galaxy,36.0
+M83,NGC 5236,Galaxy,7,Hydra,8500000,Lacaille,1751,Southern Pinwheel Galaxy,110.0
+M84,NGC 4374,Galaxy,9,Virgo,41000000,Messier,1781,,25.0
+M85,NGC 4382,Galaxy,9,Coma Berenices,41000000,Méchain,1781,,36.92
+M86,NGC 4406,Galaxy,9,Virgo,20000000,Messier,1781,,41.25
+M87,NGC 4486,Galaxy,8,Virgo,63000000,Messier,1781,,49.0
+M88,NGC 4501,Galaxy,9,Coma Berenices,41000000,Messier,1781,,28.0
+M89,NGC 4552,Galaxy,9,Virgo,41000000,Messier,1781,,16.0
+M90,NGC 4560,Galaxy,9,Virgo,41000000,Messier,1781,,42.75
+M91,NGC 4548,Galaxy,10,Coma Berenices,37000000,Messier,1781,,23.76
+M92,NGC 6341,Globular Cluster,6,Hercules,28400,Bode,1777,,125.44
+M93,NGC 2447,Open Cluster,6,Puppis,3600,Messier,1781,,484.0
+M94,NGC 4736,Galaxy,8,Canes Venatici,32600000,Méchain,1781,,21.0
+M95,NGC 3351,Galaxy,9,Leo,20300000,Méchain,1781,,14.52
+M96,NGC 3368,Galaxy,9,Leo,29300000,Méchain,1781,,24.0
+M97,NGC 3587,Planetary Nebula,11,Ursa Major,10000,Méchain,1781,Owl Nebula,11.22
+M98,NGC 4192,Galaxy,10,Coma Berenices,36000000,Méchain,1781,,30.4
+M99,NGC 4254,Galaxy,9,Coma Berenices,41000000,Méchain,1781,,25.92
+M100,NGC 4321,Galaxy,9,Coma Berenices,41000000,Méchain,1781,,42.0
+M101,NGC 5457,Galaxy,7,Ursa Major,23000000,Méchain,1781,Pinwheel Galaxy,484.0
+M102,NGC 5866,Galaxy,10,Draco,23000000,Méchain,1781,Spindle Galaxy,11.96
+M103,NGC 581,Open Cluster,7,Cassiopeia,8500,Méchain,1781,,36.0
+M104,NGC 4594,Galaxy,8,Corvus,40000000,Méchain,1781,Sombrero Galaxy,36.0
+M105,NGC 3379,Galaxy,9,Leo,21500000,Méchain,1781,,4.0
+M106,NGC 4258,Galaxy,8,Canes Venatici,20000000,Méchain,1781,,152.0
+M107,NGC 6171,Globular Cluster,8,Ophiuchus,19200,Méchain,1782,,100.0
+M108,NGC 3556,Galaxy,10,Ursa Major,23500000,Méchain,1782,,8.0
+M109,NGC 3992,Galaxy,9,Ursa Major,27000000,Méchain,1782,,28.0
+M110,NGC 205,Galaxy,8,Andromeda,2250000,Messier,1773,,170.0

@@ -1,0 +1,78 @@
+body{
+    background: linear-gradient(#020331,#1e0136);
+    font-family: Jost;
+    color:white;
+    margin: 0 auto;
+    max-width: 1210px;
+    min-width: 500px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+}
+
+#title{
+    text-align: center;
+}
+
+#vis-1{
+    justify-content: center;
+    display: flex;
+}
+
+#vis-2{
+    justify-content: center;
+    display: flex;
+}
+
+.horizontal{
+    width: 100%;
+  }
+
+#info-1{
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+#objects-1{
+    background-color: rgba(0, 0, 0, 0.25);
+
+}
+
+#gl{
+    background-color: rgba(0, 0, 0, 0.25);
+
+}
+
+#info-2{
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+#cp{
+    background-color: rgba(0, 0, 0, 0.25);
+
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+  }
+
+.info{
+    justify-content: center;
+    display: flex;
+}
+
+.data{
+    width: 800px;
+}
+
+button{
+    background-color: aliceblue;
+    color: #020331;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#circle2{
+    cursor: pointer;
+}

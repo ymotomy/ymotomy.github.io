@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://d3js.org/d3.v7.js"></script>
+    <title>Catologo Messier</title>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Catalogo Messier</h1>
+        
+        <br><br>
+        
+        <h2>Distancias respecto a la Tierra</h2>
+        <div class="info">
+            <div class="data">
+                <p>
+                En esta visualización podremos apreciar las distancias proporcionales de los objetos 
+                Messier con respecto a nuestro planeta. Notaremos que dentro de cierto rango no hay ningún 
+                objeto, esto se debe al tamaño de nuestra galaxia, que abarca aproximadamente 100,000 años 
+                luz, por lo que cualquier entidad que no sea una galaxia estará contenida dentro de este 
+                rango. Sin embargo, más allá de los 2,000,000 de años luz, volvemos a encontrar objetos 
+                celestes, que en este caso son galaxias.
+                </p>
+                <p>*Seleccione un astro para ver su informacion*
+                </p>
+            </div>
+        </div>
+        <div id="vis-1">
+        </div>
+        <div class="info">
+            <div class="data">
+                <p>
+                *Presione la tierra para deseleccionar*
+                </p>
+                <br>
+            </div>
+        </div>
+        
+        <br><br>
+        <br><br>
+
+        <h2>Cantidad acumulada de cuerpos descubiertos por año</h2>
+        <div class="info">
+            <div class="data">
+                Aquí se presenta una visualización de la distribución de cuerpos celestes agrupados 
+                por su tipo, los cuales se han ido acumulando a lo largo de los años a medida que han 
+                sido descubiertos.
+            </p>
+            <br>
+        </div>
+        </div>
+        <div id="vis-2">
+        </div>
+
+        <br><br>
+        <br><br>
+
+        <h2>Tamaño de los cuerpos en la esfera celeste</h2>
+        <div class="info">
+            <div class="data">
+            <p>
+                En esta visualización, podremos comparar los tamaños de los astros en relación a la 
+                bóveda celeste. La bóveda celeste se refiere a la apariencia del cielo desde la perspectiva 
+                terrestre, como si fuera una esfera imaginaria que envuelve nuestro planeta, en la cual se 
+                encuentran las estrellas y otros objetos celestes.
+        
+                Es importante destacar que debido a esta representación en la bóveda celeste, puede haber 
+                casos donde una estrella binaria parezca ser más grande que una galaxia. Esto se debe a la 
+                distancia relativa y la perspectiva visual en la que se encuentran estos objetos en el cielo.
+            </p>
+            <br>
+        </div>
+        </div>
+        <div id="vis-3">
+        <!-- <form id="filter"> -->
+            <div>
+                <button id="BGalaxy">Galaxy</button>
+                <button id="BGlobular-Cluster">Globular Cluster</button>
+                <button id="BOpen-Cluster">Open Cluster</button><br>
+                <button id="BNebula">Nebula</button>
+                <button id="BDouble-Star">Double Star</button><br>
+                <button id="BReset">Reset</button>
+            </div>
+            <br>
+            <!-- <button id="aplicar">Aplicar</button> -->
+        <!-- </form> -->
+        </div>
+        
+        <div>
+            <footer>
+                <br/>
+                <br/>
+                <p>© Tomás Romero Aránguiz | Victor Bórquez</p>
+                <p>2023</p>
+            </footer>
+        </div>
+        <br><br>
+    </div>    
+    <script src="main.js"></script>
+    <script src="configuration.js"></script>
+</body>
+
+</html>
+</html>
