@@ -4,7 +4,6 @@ body {
   font-family: Jost;
 }
 
-a:link,
 a {
   margin: 1px;
   text-decoration: none;
@@ -16,6 +15,7 @@ a {
 a:hover {
   color: rgb(177, 219, 255);
   text-align: left;
+  cursor: pointer;
 }
 
 #titulo {
