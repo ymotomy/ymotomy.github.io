@@ -55,7 +55,7 @@ function redirigir(sigla) {
 function generarEnlace() {
     for (facultad of Object.keys(facultades)) {
         document.write('<div class="contenedor">');
-        document.write('<div class="facultades">');
+        document.write('<div class="facultades" style="padding-left:40px; padding-right:10px">');
         
         document.write('<h2>' + facultad + '</h2>');
         siglas = Object.keys(facultades[facultad]);

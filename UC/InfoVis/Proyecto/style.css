@@ -76,3 +76,11 @@ button{
 #circle2{
     cursor: pointer;
 }
+
+a{
+    color:white;
+    text-decoration: none;
+}
+a:hover{
+    color: #641b9f;
+}
