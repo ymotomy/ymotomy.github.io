@@ -18,7 +18,7 @@ var facultades = {"Escuela de Ingeniería":
                                        "IMT2115": "Control de Sistemas Lineales",
                                        "IMT2565": "Optimización Combinatorial",
                                        "IMT2113": "Análisis de Fourier Aplicado",
-                                       "IMT2111(f)": "Álgebra Lineal Numérica"},
+                                       "IMT2111": "Álgebra Lineal Numérica"},
 
             "Facultad de Matemáticas":
                                        {"EYP2427": "Minería de Datos e Inteligencia de Negocios",
@@ -29,7 +29,7 @@ var facultades = {"Escuela de Ingeniería":
                                        "EYP2417": "Muestreo"},
                                        
             "Facultad de Ciencias Biológicas":
-                                       {"BIO318E(f)": "Principios de Dinámica Poblacional: Teoría y Aplicaciones",
+                                       {"BIO318E": "Principios de Dinámica Poblacional: Teoría y Aplicaciones",
                                        "BIO295A": "Seminario de Investigacion Departamental",
                                        "BIO110C": "Biología de Organismos y Comunidades",
                                        "BIO141C": "Biología de la Célula",
@@ -62,7 +62,7 @@ function generarEnlace() {
         for (sigla of siglas) {
             curso = facultades[facultad][sigla]
             let text = sigla + " - " + curso 
-            if (text.length <= 33) {
+            if (text.length <= 38) {
                 document.write('<a name="' + sigla + '" onclick="redirigir(this.name)"><li>' + sigla + ' - ' + curso + '</li></a><br>');
             }
             else{
