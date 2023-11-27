@@ -1,0 +1,42 @@
+* {
+    font-family: Open Sans;
+    background-color: #A5CE8D;
+}
+
+h1 {
+    padding-top: 30px;
+    text-align: center;
+    color: #1C2518;
+}
+
+footer {
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    color: #1C2518;
+    font-size: 25px;
+}
+
+footer p {
+    margin: 0;
+}
+
+hr {
+    border: none; /* Elimina el borde predeterminado */
+    height: 2px; /* Altura de la línea */
+    background-color: #1C2518; /* Color de fondo negro */
+}
+
+footer p a{
+    color: #1C2518;
+    text-decoration: none;
+}
+
+
+footer p a:hover {
+    color: #626F49;
+}
+
+h2 {
+    padding-left: 40px;
+}
