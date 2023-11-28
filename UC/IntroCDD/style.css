@@ -1,42 +1,124 @@
-* {
-    font-family: Open Sans;
-    background-color: #A5CE8D;
+body {
+    font-family: Jost;
+    background-color: #d9dcd6;
+    color: #102d3d
 }
 
 h1 {
     padding-top: 30px;
     text-align: center;
-    color: #1C2518;
+    color: #05668D;
 }
 
 footer {
     text-align: center;
-    padding-top: 30px;
+    padding-top: 17px;
     padding-bottom: 30px;
-    color: #1C2518;
-    font-size: 25px;
+    color: #05668D;
+    font-size: 15px;
 }
 
 footer p {
     margin: 0;
+    text-align: center;
 }
 
 hr {
     border: none; /* Elimina el borde predeterminado */
     height: 2px; /* Altura de la línea */
-    background-color: #1C2518; /* Color de fondo negro */
+    background-color: #05668D; /* Color de fondo negro */
 }
 
-footer p a{
-    color: #1C2518;
+footer p a, .items a{
+    color: #2F6690;
     text-decoration: none;
 }
 
 
-footer p a:hover {
-    color: #626F49;
+footer p a:hover, .items a:hover {
+    color: #499fb9;
 }
 
 h2 {
     padding-left: 40px;
+    padding-bottom: 0px;
+    padding-top: 20px;
+}
+
+#indices a {
+ color:#81C3D7;  
+ text-decoration: none;
+ background-color: #16425B;
+ border-radius: 5px;
+ padding: 5px;
+}
+
+#indices a:hover{
+    color: #2F6690
+}
+
+p{
+    margin: 40px;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+.contexto {
+    justify-content: center;
+    display: flex;
+    align-items: flex-start;
+  }
+  
+.items {
+    vertical-align: top;
+    background-color: rgba(0, 0, 0, 0.15);
+    justify-content: flex-start;
+    margin: 50px;
+    border-radius: 7px;
+    width: 50%;
+  }
+
+h3 {
+    margin-left: 40px;
+    text-align: center;
+  }
+
+img {
+    max-width: 50%;
+    height: auto;
+    display: block;
+    margin: auto;
+    margin-bottom: 25px;
+  }
+
+.vcontenedor {
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.vsubcontenedor {
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    flex-direction: column;
+}
+
+.preguntascont {
+    background-color: rgba(0, 0, 0, 0.15);
+    border-radius: 7px;
+    flex-direction: column;
+    margin: 10px;
+    width: 50%;
+}
+
+.preguntascont h3{
+    padding: 10px;
+    margin: 10px;
+}
+
+.textimg {
+    text-align: justify;
+    max-width: 60%;
 }

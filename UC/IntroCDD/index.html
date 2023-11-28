@@ -1,30 +1,291 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Proyecto Intro a CDD</title>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
 </head>
-    <body>
-        <h1>AVISTAMIENTOS DE AVES, PANDEMIA E INCENDIOS</h1>
-        <center>
-            <img src="aves.jpg" style="max-width: 75%; height: auto;display: block; margin: auto;">
-        </center>
-        <h2>Objetivos</h2>
-        <h2>Datos</h2>
-        <h2>Preguntas</h2>
+
+<body>
+    <h1>AVISTAMIENTOS DE AVES, PANDEMIA E INCENDIOS</h1>
+    <p style="text-align: center;" id="indices">
+        <a href="#Analisis">Analisis</a>
+        <a href="#Preguntas">Preguntas</a>
+        <a href="https://github.com/ymotomy/Proyecto-IMT2200" target="_blank">Code</a>
+
+    </p>
+    <center>
+        <img src="ave1.jpg" style="max-width: 60%; height: auto;display: block; margin: auto;">
+    </center>
+    <div class="contexto">
+        <div class="items">
+            <h2 id="objetivos" class="subitem">Objetivos</h2>
+            <p>El propósito central de este proyecto radica en analizar el comportamiento de las aves avistadas en los
+                territorios chilenos
+                en relación con los incendios que han afectado al país, así como la irrupción de la pandemia, durante el
+                período comprendido
+                entre 2015 y 2020. La finalidad es destacar la importancia de comprender cómo estos eventos inciden en
+                las poblaciones de
+                aves, su hábitat y su dinámica ecológica. Asimismo, se busca fomentar la adopción de medidas de
+                conservación y un manejo
+                adecuado de los ecosistemas en respuesta a este contexto de cambio ambiental y sanitario.</p>
+        </div>
+
+        <div class="items">
+            <h2 id="datos" class="subitem">Datos</h2>
+            <p style="margin-bottom: 5px;">Para llevar a cabo este proyecto, aprovecharemos la API proporcionada por
+                <a href="https://documenter.getpostman.com/view/664302/S1ENwy59#5a1e27e9-128f-4ab5-80ad-88cd6de10026"
+                    target="_blank">eBird</a>. Utilizamos esta interfaz para obtener datos
+                sobre avistamientos de aves en territorio chileno desde 2015 hasta 2022, incluyendo información sobre la
+                taxonomía de las
+                aves y las ubicaciones específicas donde se realizaron los avistamientos. Además, disponemos de un
+                conjunto de datos que
+                contiene información sobre los incendios registrados en nuestro país.
+            </p>
+            <p><a href="https://github.com/ymotomy/Proyecto-IMT2200/tree/main/data" target="_blank">Ver</a></p>
+        </div>
+    </div>
+
+    <h2 id="Analisis" style="text-align: center;">Analisis</h2>
+    <div>
+        <h3 style="text-align: center;">Cantidad de avistamientos reportados por año</h3>
+        <div class="vsubcontenedor">
+            <img src="Graficos/1.png">
+            <p class="textimg">En este grafico podemos ver efectivamente en el año 2020, los avistamientos disminuyeron.
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <h3 style="text-align: center;">Frecuencia promedio de Familias de aves por zona</h3>
+        <div class="vsubcontenedor">
+            <img src="Graficos/18.png">
+            <img src="Graficos/19.png">
+            <img src="Graficos/20.png">
+            <p class="textimg">
+                Podemos ver que las familias mas comunes vistas en las 3 zonas, son gaviotas, patos y garzas, lo cual
+                tiene sentido ya que son aves que nuestro país es reconocido por su gran extension de costa marina.
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <h3 style="text-align: center;">Relación entre frecuencia y daños de incendios</h3>
+        <div class="vsubcontenedor">
+            <img src="Graficos/2.png">
+            <img src="Graficos/3.png">
+            <p class="textimg">
+                Como podemos apreciar, a pesar de existir una ocurrencia de incendios muy baja entre los años 2015-2018,
+                los daños generados por estos incendios son muy altos, por lo que podemos concluir que los incendios que
+                ocurrieron en estos años fueron de gran magnitud. Más específicamente, podemos ver que el año 2016 fue
+                el año con mayor cantidad de incendios y con mayor daño generado por estos, siendo las regiones más
+                afectadas la región del Maule y la región de O'Higgins, junto con la región del Biobío, por lo que éstos
+                serán los focos de nuestro análisis.
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <h3 style="text-align: center;">Causales de incendios</h3>
+        <div class="vsubcontenedor">
+            <img src="Graficos/4.png">
+            <p class="textimg">
+                Como podemos apreciar, la principal causa de incendios en Chile es de carácter accidental, seguido por
+                la causa intencional, por lo que podemos concluir que la mayoría de los incendios en Chile son causados
+                por el ser humano, algo que pudo haber sido completamente evitable.
+                Inicialmente, es interesante observar que la mayoría de los incendios provocados fueron atribuibles a
+                actividades humanas, en lugar de causas naturales. Estos datos sugieren que, en muchos casos, la
+                responsabilidad de los incendios recae directamente en las acciones humanas, lo que plantea la cuestión
+                de la relación entre el cambio climático y las actividades humanas, siendo estas últimas un factor
+                determinante en la ocurrencia de incendios.
+            </p>
+            <p class="textimg">
+                Durante el periodo 2016-2017, se registró uno de los eventos de incendio forestal más extensos en
+                términos de superficie (de hecho, fue dada a conocer como una tormenta de fuego). Aunque la cantidad
+                total de incendios puede no haber sido significativa, la magnitud y el impacto medioambiental de este
+                suceso fueron notables. Este incidente destacó por su gran tamaño y consecuencias ambientales
+                significativas.
+
+                Centrándonos en el impacto medioambiental, es evidente que eventos de gran amplitud, como el ya
+                mencionado, pueden influir en el comportamiento y la diversidad de las aves en la región(es) afectada.
+                La presencia de incendios a gran escala puede alterar tanto el comportamiento como el tipo de aves
+                avistadas en esa área. Esto se debe a que las aves se ven obligadas a emigrar hacia otras zonas para
+                garantizar su supervivencia, o lamentablemente, algunas pueden perecer como resultado del incendio.
+
+                En un sentido más general, cada vez que se produce un incendio en una región específica, se observa un
+                impacto directo en la cantidad y diversidad de aves presentes en ese entorno. Este fenómeno subraya la
+                estrecha interconexión entre los incendios forestales y la vida silvestre, evidenciando la necesidad de
+                abordar y gestionar adecuadamente estos eventos para preservar la biodiversidad y el equilibrio
+                ecológico.
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <h3 style="text-align: center;">Avistamientos diarios entre Noviembre y Febrero de 2015 a 2018</h3>
+        <div class="vsubcontenedor">
+            <img src="Graficos/8.png">
+            <img src="Graficos/9.png">
+            <img src="Graficos/10.png">
+            <p class="textimg">
+                Analizando los gráficos por mes y relacionados con cada una de las regiones, podemos ver que existe una
+                disminución de avistamientos de aves en el mes de enero para el año 2017, esto se puede deber a que en
+                este mes se produjo uno de los incendios forestales más grande de la historia de Chile, el cual afectó
+                principalmente a las regiones de O'Higgins, Maule y BioBio, por lo que podemos concluir que los
+                incendios forestales afectan directamente a la cantidad de aves avistadas en Chile.
+            </p>
+            <p class="textimg">
+                Para hacer la comparación tomaremos las aves promedio avistadas en el año anterior y posterior a los
+                incendios, para ver si hubo una disminución o aumento de aves avistadas en las regiones afectadas.
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <h3 style="text-align: center;">Diferencia promedio de aves en las regiones mas afectadas </h3>
+        <div class="vsubcontenedor">
+            <img src="Graficos/11.png">
+            <img src="Graficos/12.png">
+            <p class="textimg">
+                Podemos ver que hubieron especies que aumentaron y otras que disminuyeron. Llama la atencion que las
+                especies que disminuyeron son marinas
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <h3 style="text-align: center;">Avistamientos anuales </h3>
+        <div class="vsubcontenedor">
+            <img src="Graficos/13.png">
+            <p class="textimg">
+                Podemos observar que post 2020 el indice de avistamientos aumenta exponencial y notoriamente en
+                comparación a los últimos años observados
+
+                Como comentamos anteriormente sabemos que los incendios tienen una relación directa con los
+                avistamientos de pajaros, por lo mismo para que la subida de avistamientos tengan directa relación con
+                los efectos de la pandemia revisaremos si en post 2020 los incendios pudieron disminuir, lo cual no
+                necesariamente nos diría que la pandemia fue la principal causal del repunte.
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <h3 style="text-align: center;">Ocurrencia de incendios entre 2020 y 2022</h3>
+        <div class="vsubcontenedor">
+            <img src="Graficos/14.png">
+            <p class="textimg">
+                Podemos notar que los años post 2020 son normales en cuanto a cantidad de incendios y daños, ya que en
+                los meses más conflictivos son siempre de Diciembre a Febrero. Es decir, fueron años normales, donde
+                hubieron incendios de igual manera que en cualquiera de los pre pandemia.
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <h3 style="text-align: center;">Avistamientos por mes en 2020</h3>
+        <div class="vsubcontenedor">
+            <img src="Graficos/15.png">
+            <p class="textimg">
+                Por ejemplo en 2020, existio una bajada notoria en los avitamientos en los meses de marzo a junio, y
+                como vimos anteriormente, solo en los meses de Diciembre y Febrero existen la mayor (por no decir
+                practicamente todos) cantidad de incendios del año. Esto nos demestra que la bajada de avistamientos en
+                netamente otorgada a la incapacidad de personas debido al confinamiento de poder salir a avistar aves, y
+                aún así pudimos observar que 2020 fue un año que supero (por poco pero de igual manera) a sus anteriores
+                años.
+            </p>
+        </div>
+    </div>
+
+    <div>
+        <h3 style="text-align: center;">Prediccion 2023</h3>
+        <div class="vsubcontenedor">
+            <img src="Graficos/16.png">
+            <img src="Graficos/17.png">
+            <p class="textimg">
+                En el modelo hecho, tratamos de predecir la cantidad de aves para el 2023, pero lamentablemente no
+                contabamos con la informacion suficiente para predecir con exactitud, por lo que solo pudimos predecir
+                con los datos que teniamos, y como podemos ver, la prediccion es que el 2023 sera un año normal, con una
+                cantidad de aves similar a la de los años anteriores.
+            </p>
+        </div>
+    </div>
 
 
-    </body>
-    <hr>
-    <footer>
-        <img src="../../../imagenes/UC.png" width="150px"></img>
-        <p>Proyecto Intro a Ciencia de Datos</p>
-        <p>2023-2</p>
-        <p>Christian Camilo | Benjamin Ruiz</p>
-        <p>Ignacio Moya | Simon Poblete</p>
-        <p><a href="../../index.html">Tomás Romero</a></p>
-    </footer>
+    <h2 id="Preguntas" style="text-align: center;">Preguntas</h2>
+
+    <div class="vcontenedor">
+        <div class="preguntascont">
+            <h3>¿La frecuencia de avistamientos de aves, o la cantidad de especies varió con los incendios?</h3>
+            <p>Principalmente analizaremos con la cantidad de avistamientos de aves en Chile, y veremos si existe una
+                relación entre la cantidad de avistamientos y la cantidad de incendios o la superficie quemada.
+                Como las regiones mas afectadas fueron las de O'Higgins, Maule y BioBio, nos enfocaremos en estas para
+                hacer
+                el estudio de cantidad de aves avistadas, haciendo el contraste con el anho 2016 y 2018, respecto a
+                2017,
+                especificamente los meses de noviembre y marzo</p>
+        </div>
+
+        <div class="preguntascont">
+            <h3>¿Qué especies de aves se ven más y menos afectadas con los incendios?</h3>
+            <p>Las aves que se vieron mas afectadas fueron aves marinas, esto sucede porque efecto de los incendios, las
+                masas de aguas se contaminan, las cuales desembocan en el mar contaminando los peces, los cuales son las
+                principal fuente de alimentacion de las aves, por lo tanto estas tienen que migrar hacia otros lados
+                para no intoxicarse</p>
+        </div>
+
+        <div class="preguntascont">
+            <h3>¿La frecuencia de avistamientos de aves, o la cantidad de especies varió con la pandemia?</h3>
+            <p>
+                Sí, la frecuencia de avistamientos de aves varío con la pandemia, debido a la disminucion de la
+                actividad humana que llevo a la reduccion de contaminacion, lo que creo un entorno mucho mas favorable
+                para las aves.
+            </p>
+        </div>
+
+        <div class="preguntascont">
+            <h3>¿Qué especies de aves se ven más y menos afectadas?</h3>
+            <p>
+                Durante el periodo de incendios podemos observar que las aves más afectadas de manera significativa
+                negativamente, es decir, diminuyo la cantidad de visualizaciones, es Pelecanoides Gamotii y Anas
+                georgica, mientras que aquellas aves que se vieron afectadas positivamente, es decir, aumento su
+                cantidad de visualizaciones, es Ardena grisea y Ardena creatopus, las cuales crecieron mucho más que con
+                respecto a la cantidad de disminución de aves.
+            </p>
+        </div>
+
+        <div class="preguntascont">
+            <h3>¿Existe algún(os) tipo(s) de ave(s) que en base a estas problemáticas pueden estar en peligro de
+                extinción?
+            </h3>
+            <p>
+                No podemos llegar a aclarar si efectivamente una especie podría llegar a estar en peligro de extinción
+                ya que no contamos con la suficiente información ni conocimiento necesario para determinar si alguna
+                especie podría estarlo. En base a esto, la presencia de un experto (o la colaboración) harían llegar la
+                respuesta a esta pregunta.
+            </p>
+        </div>
+    </div>
+
+</body>
+
+<hr>
+<footer>
+    <img src="../../../imagenes/UC.png" width="100px"></img>
+    <p>Proyecto Introducción a Ciencia de Datos</p>
+    <p>2023-2</p>
+    <p><a href="https://github.com/ChrisKmilo" target="_blank">Christian Camilo</a>
+        |
+        <a href="https://github.com/benhacks300" target="_blank">Benjamin Ruiz</a>
+        |
+        <a href="https://github.com/imoyam" target="_blank">Ignacio Moya</a>
+        |
+        <a href="https://github.com/spoblete44" target="_blank">Simon Poblete</a>
+        |
+        <a href="../../index.html">Tomás Romero</a>
+    </p>
+</footer>
+
 </html>
