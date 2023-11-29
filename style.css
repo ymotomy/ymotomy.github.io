@@ -30,3 +30,7 @@ p{
   display: flex;
   align-items: center;
 }
+
+.subc{
+  align-items: flex-start;
+}
