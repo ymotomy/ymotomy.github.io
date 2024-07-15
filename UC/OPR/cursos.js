@@ -15,11 +15,15 @@ var facultades = {
   },
 
   "Instituto de Ingeniería Matemática y Computacional": {
+    IMT3801: "Tópicos Avanzados en Ingeniería Matemática y Computacional",
     IMT2112: "Algoritmos Paralelos en Computación Científica",
     IMT3120: "Fundamentos Matemáticos de Ciencia de Datos",
+    IMT3410: "Métodos para Ecuaciones Diferenciales",
     IMT2118: "Ciencia de Datos Geoespaciales",
+    IMT3450: "Tópicos en Ciencia de Datos",
     IMT2115: "Control de Sistemas Lineales",
     IMT2565: "Optimización Combinatorial",
+    IMT2117: "Probabilidades y Algoritmos ",
     IMT2113: "Análisis de Fourier Aplicado",
     IMT2111: "Álgebra Lineal Numérica",
   },
