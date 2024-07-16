@@ -1,5 +1,5 @@
 function redirigir(sigla) {
-    let link = "https://catalogo.uc.cl/index.php?tmpl=component&option=com_catalogo&view=programa&sigla="
+    let link = "https://catalogo.uc.cl/index.php?option=com_catalogo&view=cursoslist&Itemid=378&sigla="
     window.open(link + sigla)
 }
 
