@@ -58,6 +58,6 @@ var facultades = {
   },
 
   "Instituto de Astrofísica": { 
-   AST0212: "Introducción al Análisis de Datos"
+    AST0212: "Introducción al Análisis de Datos"
 }
 };
