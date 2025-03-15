@@ -1,45 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>OPR LICD</title>
-        <link rel="stylesheet" href="../style.css" >
-        <link href='https://fonts.googleapis.com/css?family=Jost' rel='stylesheet'>
-        <script src="https://d3js.org/d3.v7.js"></script>
-        <script src="consulta_cursos.js"></script>
-    </head>
-    
-    <body>
-        
-        <div id="titulo">
-            <h1>PUC | LICD</h1>
-            <h3>Optativos de Profundización</h3>
-        </div>
-        
-        <div id="filtro">
-            <span>Mostrar</span>
-            <select id="cursos">
-                <option value="todos" selected>Todos</option>
-                <option value="ambos">Ambos</option>
-                <option value="1er">1er Semestre</option>
-                <option value="2do">2do Semestre</option>
-            </select>
-        </div>
-        
-        <div id="contenedor">
-        <script>
-            generarEnlace("Escuela de Ingeniería")
-        </script>
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>OPR LICD</title>
+    <link rel="stylesheet" href="../style.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Jost"
+      rel="stylesheet"
+    />
+    <script src="https://d3js.org/d3.v7.js"></script>
+    <script src="consulta_cursos.js"></script>
+  </head>
 
-        <footer>
-            <br/>
-            <br/>
-            <a href="../../index.html">© Tomás Romero Aránguiz | 2025</a>
-        </footer>
-        <script src="main.js"></script>
-        <script src="configuration.js"></script>
-    </body>
+  <body>
+    <div id="titulo">
+      <h1>PUC | LICD</h1>
+      <h3>Optativos de Profundización</h3>
+    </div>
+
+    <div id="filtro">
+      <span>Mostrar</span>
+      <select id="cursos">
+        <option value="todos" selected>Todos</option>
+        <option value="ambos">Ambos</option>
+        <option value="1er">1er Semestre</option>
+        <option value="2do">2do Semestre</option>
+      </select>
+    </div>
+
+    <div id="contenedor">
+      <script>
+        generarEnlace("Escuela de Ingeniería");
+      </script>
+    </div>
+
+    <footer>
+      <br />
+      <br />
+      <a href="../../index.html">© Tomás Romero Aránguiz | 2025</a>
+    </footer>
+    <script src="configuration.js"></script>
+  </body>
 </html>

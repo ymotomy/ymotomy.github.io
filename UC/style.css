@@ -52,7 +52,7 @@ a:hover {
   padding-bottom: 25px;
 }
 
-#cursos{
+#cursos {
   border-radius: 7px;
   border: none;
   text-align: center;
@@ -63,4 +63,3 @@ li a {
   text-decoration: none; /* Opcional: para quitar el subrayado */
   max-width: 100%; /* Evita desbordamientos */
 }
-
