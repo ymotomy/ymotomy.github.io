@@ -64,6 +64,6 @@ with open("semestres.csv", "w", encoding="utf-8") as f:
             f.write(f"{curso.sigla},{curso.nombre},{curso.facultad},{curso.primer},{curso.segundo}\n")
 
 #Subimos los cambios a git
-system("git add semestres.csv")
-system("git commit -m 'update cursos'")
+system("git add .")
+system('git commit -m "update cursos"')
 system("git push")
