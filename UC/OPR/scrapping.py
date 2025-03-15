@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup as bs
 import requests
+from os import system
 
 #Creamos la clase Curso para guardar la información de los cursos
 class Curso:
@@ -61,3 +62,8 @@ with open("semestres.csv", "w", encoding="utf-8") as f:
     for curso in cursos:
         if curso.nombre:
             f.write(f"{curso.sigla},{curso.nombre},{curso.facultad},{curso.primer},{curso.segundo}\n")
+
+#Subimos los cambios a git
+system("git add semestres.csv")
+system("git commit -m 'update cursos'")
+system("git push")
