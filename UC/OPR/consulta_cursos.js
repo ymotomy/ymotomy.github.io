@@ -4,21 +4,52 @@ function redirigir(sigla) {
 }
 
 function generarEnlace() {
-    for (facultad of Object.keys(facultades)) {
-        document.write('<div class="contenedor">');
-        document.write('<div class="facultades" style="padding-left:40px; padding-right:17px">');
-        
-        document.write('<h2>' + facultad + '</h2>');
-        siglas = Object.keys(facultades[facultad]);
-        for (sigla of siglas) {
-            curso = facultades[facultad][sigla]
-            let text = sigla + " - " + curso 
-            if (text.length <= 38) {
-                document.write('<a name="' + sigla + '" onclick="redirigir(this.name)"><li>' + sigla + ' - ' + curso + '</li></a><br>');
-            }
-            else{
-                document.write('<a name="' + sigla + '" onclick="redirigir(this.name)"><li>' + sigla + ' - ' + curso + '</li></a>'); 
-            }};
-        
-            document.write("</div></div>");
-}}
+    let contenedor = d3.select("#contenedor");
+    contenedor.html(""); // Limpiar el contenido antes de actualizar
+
+    // Agrupar cursos por facultad
+    let facultadesMap = {};
+    filtered.forEach(curso => {
+        if (!facultadesMap[curso.facultad]) {
+            facultadesMap[curso.facultad] = [];
+        }
+        facultadesMap[curso.facultad].push(curso);
+    });
+
+    // Crear contenedor por facultad y agregar cursos
+    for (let facultad in facultadesMap) {
+        // Se agrega la clase 'facultades' directamente para aplicar el CSS
+        let facultadDiv = contenedor.append("div")
+            .attr("class", "facultades")
+            // .style("opacity", 0) // Inicialmente invisible
+            // .transition().duration(500) // Transición de opacidad
+            // .style("opacity", 1);
+
+        // Título de la facultad
+        facultadDiv.append("h2").text(facultad);
+
+        // Lista de cursos
+        let lista = facultadDiv.append("ul");
+
+        // Se agrega la transición a los cursos
+        let items = lista.selectAll("li")
+            .data(facultadesMap[facultad], d => d.sigla);
+
+        // Eliminar elementos que ya no están presentes
+        items.exit().transition().duration(500).style("opacity", 0).remove();
+
+        // Agregar los nuevos elementos con transición
+        let enter = items.enter().append("li")
+            .append("a")
+            .attr("name", d => d.sigla)
+            .attr("onclick", d => `redirigir('${d.sigla}')`)
+            .text(d => `${d.sigla} - ${d.nombre}`)
+            .style("opacity", 0)
+            .transition().duration(500).style("opacity", 1);
+
+        // Actualizar los elementos existentes
+        items.transition().duration(500)
+            .style("opacity", 1)
+            .text(d => `${d.sigla} - ${d.nombre}`);
+    }
+}

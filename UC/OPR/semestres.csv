@@ -1,0 +1,35 @@
+sigla,nombre,facultad,primer,segundo
+IIC3413,Implementación de Sistemas de Base de Datos,Escuela de Ingeniería,True,False
+IIC2714,Fundamentos de Procesamiento de Imágenes,Escuela de Ingeniería,True,True
+IIC2223,Teoría de Autómatas y Lenguajes Formales,Escuela de Ingeniería,False,True
+IIC3783,Procesamiento Avanzado de Imagenes,Escuela de Ingeniería,False,True
+IIC2283,Diseño y Análisis de Algoritmos,Escuela de Ingeniería,False,True
+IIC3242,Complejidad Computacional,Escuela de Ingeniería,True,False
+IIC3633,Sistemas Recomendadores,Escuela de Ingeniería,True,True
+IIC2143,Ingeniería de Software,Escuela de Ingeniería,True,True
+IIC3697,Aprendizaje Profundo,Escuela de Ingeniería,True,False
+ICS113H,Optimización-Honors,Escuela de Ingeniería,True,False
+IIC2733,Modelos de Procesos,Escuela de Ingeniería,True,True
+IMT3801,Tópicos Avanzados en Ingeniería Matemática y Computacional,Instituto de Ingeniería Matemática y Computacional,False,True
+IMT2112,Algoritmos Paralelos en Computación Científica,Instituto de Ingeniería Matemática y Computacional,False,True
+IMT3120,Fundamentos Matemáticos para Ciencia de Datos,Instituto de Ingeniería Matemática y Computacional,False,True
+IMT3410,Métodos para Ecuaciones Diferenciales,Instituto de Ingeniería Matemática y Computacional,False,True
+IMT2118,Ciencia de Datos Geoespaciales,Instituto de Ingeniería Matemática y Computacional,True,False
+IMT3450,Tópicos en Aprendizaje Estadístico y Ciencia de Datos,Instituto de Ingeniería Matemática y Computacional,False,True
+IMT2565,Optimización Combinatorial,Instituto de Ingeniería Matemática y Computacional,False,True
+IMT2117,Probabilidades y Algoritmos,Instituto de Ingeniería Matemática y Computacional,False,True
+IMT2111,Álgebra Lineal Numérica,Instituto de Ingeniería Matemática y Computacional,True,False
+MAT2320,Introducción a Métodos Matemáticos para Aprendizaje Profundo,Facultad de Matemáticas,False,True
+EYP2427,Minería de Datos e Inteligencia de Negocios,Facultad de Matemáticas,True,False
+EYP3307,Modelos Lineales Generalizados,Facultad de Matemáticas,True,False
+MAT380I,Teoría de Probabilidades,Facultad de Matemáticas,True,True
+MAT2605,Cálculo Científico I,Facultad de Matemáticas,True,True
+EYP3907,Series de Tiempo,Facultad de Matemáticas,False,True
+EYP2417,Muestreo,Facultad de Matemáticas,False,True
+BIO295A,Seminario de Investigacion Departamental,Facultad de Ciencias Biológicas,True,True
+BIO110C,Biologia de Organismos y Comunidades,Facultad de Ciencias Biológicas,True,True
+BIO141C,Biología de la Célula,Facultad de Ciencias Biológicas,True,True
+BIO231C,Ecologia,Facultad de Ciencias Biológicas,False,True
+GEO202,Sistemas de Información Geográfica,Instituto de Geografía,True,True
+GEO309,Percepción Remota Satelital,Instituto de Geografía,False,True
+AST211,Introducción al Análisis de Datos,Instituto de Astrofísica,True,False
