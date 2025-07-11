@@ -3,9 +3,9 @@ ICS113H,Optimización-Honors,Escuela de Ingeniería,True,False
 IIC2143,Ingeniería de Software,Escuela de Ingeniería,True,True
 IIC2223,Teoría de Autómatas y Lenguajes Formales,Escuela de Ingeniería,False,True
 IIC2283,Diseño y Análisis de Algoritmos,Escuela de Ingeniería,False,True
+IIC2513,Tecnologías y Aplicaciones Web,Escuela de Ingeniería,True,True
 IIC2714,Fundamentos de Procesamiento de Imágenes,Escuela de Ingeniería,True,True
 IIC2733,Modelos de Procesos,Escuela de Ingeniería,True,True
-IIC3641,Aprendizaje Automático Basado en Grafos,Escuela de Ingeniería,False,True
 IIC3242,Complejidad Computacional,Escuela de Ingeniería,True,False
 IIC3413,Implementación de Sistemas de Base de Datos,Escuela de Ingeniería,True,False
 IIC3633,Sistemas Recomendadores,Escuela de Ingeniería,True,True
@@ -13,20 +13,24 @@ IIC3697,Aprendizaje Profundo,Escuela de Ingeniería,True,False
 IIC3783,Procesamiento Avanzado de Imagenes,Escuela de Ingeniería,False,True
 IMT2111,Álgebra Lineal Numérica,Instituto de Ingeniería Matemática y Computacional,True,False
 IMT2112,Algoritmos Paralelos en Computación Científica,Instituto de Ingeniería Matemática y Computacional,False,True
-IMT2117,Probabilidades y Algoritmos,Instituto de Ingeniería Matemática y Computacional,False,True
 IMT2118,Ciencia de Datos Geoespaciales,Instituto de Ingeniería Matemática y Computacional,True,False
 IMT2565,Optimización Combinatorial,Instituto de Ingeniería Matemática y Computacional,False,True
 IMT3120,Fundamentos Matemáticos para Ciencia de Datos,Instituto de Ingeniería Matemática y Computacional,False,True
+IMT3801,Tópicos Avanzados en Ingeniería Matemática y Computacional,Instituto de Ingeniería Matemática y Computacional,False,True
 EYP2417,Muestreo,Facultad de Matemáticas,False,True
 EYP2427,Minería de Datos e Inteligencia de Negocios,Facultad de Matemáticas,True,False
+EYP2707,Introducción a la Computación Estadística,Facultad de Matemáticas,False,True
 EYP3307,Modelos Lineales Generalizados,Facultad de Matemáticas,True,False
 EYP3907,Series de Tiempo,Facultad de Matemáticas,False,True
+MAT253I,Teoría de Integración,Facultad de Matemáticas,True,True
+MAT255I,Análisis Funcional,Facultad de Matemáticas,True,True
+MAT1134,Cálculo III,Facultad de Matemáticas,True,True
+MAT2320,Introducción a Métodos Matemáticos para Aprendizaje Profundo,Facultad de Matemáticas,False,True
 MAT2605,Cálculo Científico I,Facultad de Matemáticas,True,True
 MAT380I,Teoría de Probabilidades,Facultad de Matemáticas,True,True
 BIO110C,Biologia de Organismos y Comunidades,Facultad de Ciencias Biológicas,True,True
 BIO141C,Biología de la Célula,Facultad de Ciencias Biológicas,True,True
 BIO231C,Ecologia,Facultad de Ciencias Biológicas,False,True
-BIO295A,Seminario de Investigacion Departamental,Facultad de Ciencias Biológicas,True,True
 GEO202,Sistemas de Información Geográfica,Instituto de Geografía,True,True
 GEO309,Percepción Remota Satelital,Instituto de Geografía,False,True
 AST211,Introducción al Análisis de Datos,Instituto de Astrofísica,True,False
