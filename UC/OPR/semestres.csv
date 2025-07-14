@@ -13,7 +13,9 @@ IIC3697,Aprendizaje Profundo,Escuela de Ingeniería,True,False
 IIC3783,Procesamiento Avanzado de Imagenes,Escuela de Ingeniería,False,True
 IMT2111,Álgebra Lineal Numérica,Instituto de Ingeniería Matemática y Computacional,True,False
 IMT2112,Algoritmos Paralelos en Computación Científica,Instituto de Ingeniería Matemática y Computacional,False,True
+IMT2113,Análisis de Fourier Aplicado,Instituto de Ingeniería Matemática y Computacional,False,True
 IMT2118,Ciencia de Datos Geoespaciales,Instituto de Ingeniería Matemática y Computacional,True,False
+IMT2310,Álgebra Abstracta y Aplicaciones,Instituto de Ingeniería Matemática y Computacional,False,True
 IMT2565,Optimización Combinatorial,Instituto de Ingeniería Matemática y Computacional,False,True
 IMT3120,Fundamentos Matemáticos para Ciencia de Datos,Instituto de Ingeniería Matemática y Computacional,False,True
 IMT3801,Tópicos Avanzados en Ingeniería Matemática y Computacional,Instituto de Ingeniería Matemática y Computacional,False,True
@@ -25,7 +27,6 @@ EYP3907,Series de Tiempo,Facultad de Matemáticas,False,True
 MAT253I,Teoría de Integración,Facultad de Matemáticas,True,True
 MAT255I,Análisis Funcional,Facultad de Matemáticas,True,True
 MAT1134,Cálculo III,Facultad de Matemáticas,True,True
-MAT2320,Introducción a Métodos Matemáticos para Aprendizaje Profundo,Facultad de Matemáticas,False,True
 MAT2605,Cálculo Científico I,Facultad de Matemáticas,True,True
 MAT380I,Teoría de Probabilidades,Facultad de Matemáticas,True,True
 BIO110C,Biologia de Organismos y Comunidades,Facultad de Ciencias Biológicas,True,True

@@ -25,7 +25,7 @@ facultades = {"Escuela de Ingeniería": "IIC ICS",
 # guardar el nombre del curso.
 #La función se conecta a la página de la UC y busca la información del curso
 def se_cursa(semestre, curso):
-    url = f"https://buscacursos.uc.cl/?cxml_semestre=2024-{semestre}&cxml_sigla={curso.sigla}"
+    url = f"https://buscacursos.uc.cl/?cxml_semestre=2025-{semestre}&cxml_sigla={curso.sigla}"
     if semestre == 1:
         url = f"https://buscacursos.uc.cl/?cxml_semestre=2025-{semestre}&cxml_sigla={curso.sigla}"
     page = requests.get(url).text
