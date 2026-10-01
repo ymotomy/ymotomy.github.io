@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#08111f">
+  <meta name="description" content="Explora los 110 objetos del catálogo Messier: sus distancias, descubrimientos y tamaños aparentes.">
+  <title>Atlas Messier — objetos del cielo profundo</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://d3js.org/d3.v7.min.js"></script>
+  <script defer src="main.js"></script>
+  <script defer src="configuration.js"></script>
+</head>
+<body>
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Atlas Messier, inicio"><span class="brand-mark" aria-hidden="true">✳</span><span>ATLAS <b>MESSIER</b></span></a>
+      <span class="header-note"><span class="status-dot"></span> Exploración interactiva del cielo profundo</span>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">UNA VENTANA AL UNIVERSO</p>
+          <h1 id="page-title">El cielo profundo,<br><em>objeto por objeto.</em></h1>
+          <p class="hero-intro">Un recorrido visual por el catálogo Messier: nebulosas, cúmulos y galaxias que revelan la escala y la historia de nuestro universo.</p>
+          <a class="scroll-cue" href="#distancias"><span aria-hidden="true">↓</span> Explorar el catálogo</a>
+        </div>
+        <div class="hero-orbit" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+          <div class="orbit-core"><span>110</span><small>OBJETOS</small></div>
+          <i class="star star-one"></i><i class="star star-two"></i><i class="star star-three"></i>
+          <span class="orbit-label label-one">CIELO PROFUNDO</span><span class="orbit-label label-two">DESDE 1731</span>
+        </div>
+        <div class="hero-stats" aria-label="Resumen del catálogo">
+          <div><strong id="metric-total">110</strong><span>objetos Messier</span></div>
+          <div><strong id="metric-types">5</strong><span>familias celestes</span></div>
+          <div><strong id="metric-years">50</strong><span>años de descubrimientos</span></div>
+        </div>
+      </section>
+      <section class="viz-section" id="distancias" aria-labelledby="distance-title">
+        <div class="section-heading"><div class="section-index">01 <span> / ESPACIO</span></div><div><h2 id="distance-title">A escala del universo</h2><p>¿A qué distancia están los objetos Messier? Cada punto representa un astro; selecciónalo para conocer su historia.</p></div></div>
+        <div class="panel distance-panel">
+          <div class="chart-topline"><span class="chart-kicker"><span class="legend-dot cyan"></span> Distancia desde la Tierra</span><span class="chart-note">Escala horizontal logarítmica</span></div>
+          <div id="distance-chart" class="chart-area" aria-live="polite"></div>
+          <div class="chart-footnote"><span class="earth-key" aria-hidden="true">⊕</span> Tierra <span class="footnote-separator">·</span> Distancias expresadas en años luz</div>
+        </div>
+        <div class="detail-panel" id="object-details">
+          <div class="detail-empty" id="details-empty"><span class="detail-spark" aria-hidden="true">✦</span><div><strong>Elige un objeto del gráfico</strong><p>Su ficha aparecerá aquí con los datos principales del catálogo.</p></div></div>
+          <article class="detail-card" id="details-card" hidden>
+            <img id="detail-image" src="" alt="">
+            <div class="detail-primary"><p class="detail-type" id="detail-type"></p><h3 id="detail-title"></h3><span class="detail-catalogue" id="detail-messier"></span></div>
+            <dl class="detail-facts">
+              <div><dt>Distancia</dt><dd id="detail-distance"></dd></div><div><dt>Constelación</dt><dd id="detail-constellation"></dd></div>
+              <div><dt>Descubrimiento</dt><dd id="detail-year"></dd></div><div><dt>Descubridor</dt><dd id="detail-discoverer"></dd></div>
+              <div><dt>Magnitud</dt><dd id="detail-magnitude"></dd></div><div><dt>Identificación</dt><dd id="detail-ngc"></dd></div>
+            </dl>
+            <button class="text-button" id="clear-selection" type="button">Limpiar selección <span aria-hidden="true">×</span></button>
+          </article>
+        </div>
+      </section>
+      <section class="viz-section" aria-labelledby="timeline-title">
+        <div class="section-heading"><div class="section-index">02 <span> / TIEMPO</span></div><div><h2 id="timeline-title">Una historia de descubrimientos</h2><p>La cantidad acumulada de objetos conocidos creció durante más de un siglo. Filtra por familia para seguir cada historia.</p></div></div>
+        <div class="panel">
+          <div class="chart-topline chart-topline-wrap"><span class="chart-kicker"><span class="legend-dot gold"></span> Objetos descubiertos acumulados</span>
+            <div class="filter-group" id="timeline-filters" role="group" aria-label="Filtrar familias en la línea de tiempo">
+              <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">Todas</button>
+              <button class="filter-button" type="button" data-filter="Galaxy" aria-pressed="false">Galaxias</button>
+              <button class="filter-button" type="button" data-filter="Globular Cluster" aria-pressed="false">Cúmulos globulares</button>
+              <button class="filter-button" type="button" data-filter="Open Cluster" aria-pressed="false">Cúmulos abiertos</button>
+              <button class="filter-button" type="button" data-filter="Nebula" aria-pressed="false">Nebulosas</button>
+              <button class="filter-button" type="button" data-filter="Double star" aria-pressed="false">Estrellas dobles</button>
+            </div>
+          </div>
+          <div id="timeline-chart" class="chart-area" aria-live="polite"></div>
+          <div class="chart-footnote">Los registros sin año confirmado no se incluyen en esta visualización.</div>
+        </div>
+      </section>
+      <section class="viz-section" aria-labelledby="size-title">
+        <div class="section-heading"><div class="section-index">03 <span> / APARIENCIA</span></div><div><h2 id="size-title">Tamaños en la bóveda celeste</h2><p>Compara el tamaño angular aparente de cada astro. El área de cada círculo se relaciona con su dimensión registrada.</p></div></div>
+        <div class="panel">
+          <div class="chart-topline chart-topline-wrap"><span class="chart-kicker"><span class="legend-dot violet"></span> Diámetro angular relativo</span>
+            <div class="filter-group" id="size-filters" role="group" aria-label="Filtrar objetos por familia">
+              <button class="filter-button active" type="button" data-filter="all" aria-pressed="true">Todas</button>
+              <button class="filter-button" type="button" data-filter="Galaxy" aria-pressed="false">Galaxias</button>
+              <button class="filter-button" type="button" data-filter="Globular Cluster" aria-pressed="false">Cúmulos globulares</button>
+              <button class="filter-button" type="button" data-filter="Open Cluster" aria-pressed="false">Cúmulos abiertos</button>
+              <button class="filter-button" type="button" data-filter="Nebula" aria-pressed="false">Nebulosas</button>
+              <button class="filter-button" type="button" data-filter="Double star" aria-pressed="false">Estrellas dobles</button>
+            </div>
+          </div>
+          <div id="size-chart" class="chart-area size-chart-area" aria-live="polite"></div>
+          <div class="chart-footnote">La perspectiva celeste representa el tamaño aparente visto desde la Tierra, no el tamaño físico del objeto.</div>
+        </div>
+      </section>
+      <p class="data-error" id="data-error" role="alert" hidden>No fue posible cargar el catálogo. Abre esta página desde un servidor web local para que el navegador pueda leer los archivos de datos.</p>
+    </main>
+    <footer class="site-footer"><a href="../../../index.html">← Volver al sitio de Tomás Romero</a><span>Datos del catálogo Messier · Visualización interactiva</span></footer>
+  </div>
+  <div class="tooltip" id="tooltip" role="status" aria-live="polite"></div>
+</body>
+</html>

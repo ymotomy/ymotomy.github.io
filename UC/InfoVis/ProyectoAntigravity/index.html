@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Catálogo Messier: Cartografía del Cielo Profundo | InfoVis UC</title>
+  
+  <!-- Tipografías de Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Hoja de Estilos -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- Librería D3.js v7 -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <p id="catalog-load-error" class="catalog-load-error" role="alert" hidden>No fue posible cargar los datos compartidos del catálogo.</p>
+
+  <!-- Fondo estelar animado en Canvas -->
+  <canvas id="starfield-canvas"></canvas>
+  <div class="cosmic-nebula-glow"></div>
+
+  <!-- Contenedor Principal -->
+  <div class="app-container">
+
+    <!-- HEADER / HERO -->
+    <header class="site-header">
+      <div class="badge-top">
+        <span>✨</span> Pontificia Universidad Católica de Chile · InfoVis
+      </div>
+      <h1 class="main-title">Catálogo Messier</h1>
+      <p class="subtitle-desc">
+        Cartografía interactiva de los <strong>110 objetos astronómicos del cielo profundo</strong> catalogados por Charles Messier y Pierre Méchain entre 1758 y 1782. Explora sus distancias cósmicas, su cronología de descubrimiento y sus dimensiones en la bóveda celeste.
+      </p>
+
+      <!-- Resumen estadístico (KPIs) -->
+      <div class="kpi-grid">
+        <div class="kpi-card">
+          <div class="kpi-icon" style="color: var(--color-globular);">🔭</div>
+          <div class="kpi-info">
+            <div class="kpi-value">110</div>
+            <div class="kpi-label">Objetos Catalogados</div>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon" style="color: var(--color-galaxy);">🌌</div>
+          <div class="kpi-info">
+            <div class="kpi-value">5 Tipos</div>
+            <div class="kpi-label">Categorías Celestes</div>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon" style="color: var(--color-open);">🪐</div>
+          <div class="kpi-info">
+            <div class="kpi-value">410 a 63M</div>
+            <div class="kpi-label">Años Luz de Distancia</div>
+          </div>
+        </div>
+
+        <div class="kpi-card">
+          <div class="kpi-icon" style="color: var(--color-double);">✨</div>
+          <div class="kpi-info">
+            <div class="kpi-value">38</div>
+            <div class="kpi-label">Constelaciones</div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- BARRA DE HERRAMIENTAS Y FILTRADO GLOBAL (STICKY) -->
+    <nav class="global-toolbar" aria-label="Filtros y navegación">
+      <!-- Búsqueda Instantánea -->
+      <div class="search-container">
+        <span class="search-icon">🔍</span>
+        <input 
+          type="text" 
+          id="global-search-input" 
+          class="search-input" 
+          placeholder="Buscar astro (ej. M31, Andrómeda, Orión, Tauro)..."
+          autocomplete="off"
+        >
+        <div id="search-autocomplete-list" class="search-autocomplete-list"></div>
+      </div>
+
+      <!-- Filtros de Categorías Celestes -->
+      <div class="category-filter-group">
+        <button class="filter-pill active" data-type="all">
+          <span class="dot"></span> Todos (110)
+        </button>
+        <button class="filter-pill" data-type="Galaxy">
+          <span class="dot"></span> Galaxias (40)
+        </button>
+        <button class="filter-pill" data-type="Globular Cluster">
+          <span class="dot"></span> Cúmulos Globulares (29)
+        </button>
+        <button class="filter-pill" data-type="Open Cluster">
+          <span class="dot"></span> Cúmulos Abiertos (27)
+        </button>
+        <button class="filter-pill" data-type="Nebula">
+          <span class="dot"></span> Nebulosas (11)
+        </button>
+        <button class="filter-pill" data-type="Double star">
+          <span class="dot"></span> Estrellas Dobles (3)
+        </button>
+      </div>
+
+      <!-- Enlaces Rápidos -->
+      <div class="nav-anchor-links">
+        <a href="#section-vis1" class="nav-link-btn">🌌 Distancias</a>
+        <a href="#section-vis2" class="nav-link-btn">⏳ Cronología</a>
+        <a href="#section-vis3" class="nav-link-btn">🔭 Bóveda</a>
+        <a href="#section-mosaic" class="nav-link-btn">📖 Mosaico</a>
+      </div>
+    </nav>
+
+    <!-- ====================================================================
+         VISUALIZACIÓN 1: DISTANCIAS RESPECTO A LA TIERRA
+         ==================================================================== -->
+    <section id="section-vis1" class="vis-section">
+      <div class="vis-header">
+        <span class="vis-tag">Visualización 1 · Escala Logarítmica</span>
+        <h2 class="vis-title">Distancias Cósmicas respecto a la Tierra</h2>
+        <p class="vis-description">
+          Aprecia las distancias proporcionales de los objetos Messier con respecto a nuestro planeta en una escala logarítmica que abarca desde <strong>410 hasta 63.000.000 de años luz</strong>. Notarás que entre los 100.000 y los 2.000.000 de años luz existe un enorme <em>vacío intergaláctico</em>: toda nebulosa o cúmulo estelar pertenece a nuestra Vía Láctea, mientras que más allá de los 2 millones de años luz solo existen otras galaxias.
+        </p>
+      </div>
+
+      <!-- Controles de Vis 1 -->
+      <div class="vis-controls-bar">
+        <div class="control-btn-group">
+          <span class="control-label">Distribución:</span>
+          <button id="btn-v1-mode-cosmic" class="btn-ctrl btn-v1-layout active">🌌 Vista Cósmica</button>
+          <button id="btn-v1-mode-lanes" class="btn-ctrl btn-v1-layout">📊 Canales por Tipo</button>
+        </div>
+
+        <div class="control-btn-group">
+          <span class="control-label">Enfocar Región:</span>
+          <button id="btn-v1-preset-all" class="btn-ctrl">Todo el Cosmos</button>
+          <button id="btn-v1-preset-milky" class="btn-ctrl">Vía Láctea (&lt;100k al)</button>
+          <button id="btn-v1-preset-local" class="btn-ctrl">Grupo Local (~2.5M al)</button>
+          <button id="btn-v1-preset-virgo" class="btn-ctrl">Cúmulo de Virgo (&gt;10M al)</button>
+        </div>
+
+        <div class="control-btn-group">
+          <button id="btn-v1-zoom-in" class="btn-ctrl btn-icon" title="Acercar">+</button>
+          <button id="btn-v1-zoom-out" class="btn-ctrl btn-icon" title="Alejar">−</button>
+          <button id="btn-v1-zoom-reset" class="btn-ctrl btn-icon" title="Restablecer">⟲</button>
+        </div>
+      </div>
+
+      <!-- Layout: Gráfico SVG + Ficha Lateral -->
+      <div class="vis1-layout">
+        <div class="vis1-svg-wrapper">
+          <div id="vis-1"></div>
+        </div>
+
+        <div id="vis1-inspector-card" class="inspector-card">
+          <div class="empty-state">
+            <div style="font-size: 2.5rem; margin-bottom: 12px;">🔭</div>
+            <h3 style="color:#fff; font-size:1.15rem; margin-bottom:6px;">Explorador de Distancias</h3>
+            <p style="font-size: 0.88rem; color: var(--text-muted); line-height: 1.5;">
+              Haz clic en cualquier astro o arrastra con el ratón para hacer zoom. Haz clic en la <strong>Tierra</strong> para reiniciar la vista.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VISUALIZACIÓN 2: CRONOLOGÍA DE DESCUBRIMIENTOS
+         ==================================================================== -->
+    <section id="section-vis2" class="vis-section">
+      <div class="vis-header">
+        <span class="vis-tag">Visualización 2 · Historia Observacional</span>
+        <h2 class="vis-title">Cantidad de Cuerpos Descubiertos por Año</h2>
+        <p class="vis-description">
+          Sigue la trayectoria histórica del descubrimiento de los objetos Messier agrupados por tipo. Observa cómo el auge de <strong>1764</strong> (año en que Charles Messier descubrió 38 objetos) y la fructífera alianza de <strong>1780-1781</strong> con Pierre Méchain aceleraron la exploración del universo profundo.
+        </p>
+      </div>
+
+      <!-- Controles de Vis 2 -->
+      <div class="vis-controls-bar">
+        <div class="control-btn-group">
+          <span class="control-label">Modo de Visualización:</span>
+          <button id="btn-v2-mode-cumulative" class="btn-ctrl btn-v2-mode active">📈 Crecimiento Acumulado</button>
+          <button id="btn-v2-mode-annual" class="btn-ctrl btn-v2-mode">📊 Descubrimientos Anuales</button>
+        </div>
+        <div style="font-size: 0.85rem; color: var(--text-muted);">
+          <em>Mueve el cursor por la línea de tiempo para explorar los descubrimientos de cada año.</em>
+        </div>
+      </div>
+
+      <!-- Layout: Gráfico SVG + Panel de Leyenda e Hitos -->
+      <div class="vis2-layout">
+        <div class="vis2-svg-wrapper">
+          <div id="vis-2"></div>
+        </div>
+
+        <div class="vis2-legend-panel">
+          <h3 class="legend-title">Categorías Celestes</h3>
+          <p class="legend-subtitle">Haz clic en un color para aislar su trayectoria:</p>
+
+          <div id="vis2-legend-list"></div>
+
+          <!-- Hitos Históricos -->
+          <div class="milestones-strip">
+            <h4 class="milestone-title">Hitos Históricos Clave</h4>
+            <div class="milestone-card" onclick="window.APP_STATE.setActiveCategory('Nebula')">
+              <span class="milestone-year">1610:</span> Peiresc descubre M42 (Orión) con los primeros telescopios.
+            </div>
+            <div class="milestone-card" onclick="window.APP_STATE.setActiveCategory('Nebula')">
+              <span class="milestone-year">1758:</span> Messier busca el cometa Halley y descubre M1 (Cangrejo).
+            </div>
+            <div class="milestone-card" onclick="window.APP_STATE.setActiveCategory('Globular Cluster')">
+              <span class="milestone-year">1764:</span> Gran campaña: Messier descubre 38 objetos en un solo año.
+            </div>
+            <div class="milestone-card" onclick="window.APP_STATE.setActiveCategory('Galaxy')">
+              <span class="milestone-year">1781:</span> Edición definitiva ampliada con Pierre Méchain hasta M103.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         VISUALIZACIÓN 3: TAMAÑO EN LA ESFERA CELESTE
+         ==================================================================== -->
+    <section id="section-vis3" class="vis-section">
+      <div class="vis-header">
+        <span class="vis-tag">Visualización 3 · Diámetro Angular Aparente</span>
+        <h2 class="vis-title">Tamaño de los Cuerpos en la Bóveda Celeste</h2>
+        <p class="vis-description">
+          Compara el diámetro angular aparente de los astros tal como se proyectan en el cielo nocturno visto desde la Tierra.
+          Debido a la perspectiva visual, un cúmulo abierto o una estrella binaria cercana puede lucir mucho más grande que una galaxia gigantesca pero remota.
+          Compara las burbujas directamente con el disco de la <strong>Luna Llena (~31 minutos de arco)</strong>.
+        </p>
+      </div>
+
+      <!-- Controles de Vis 3 -->
+      <div class="vis-controls-bar">
+        <div class="control-btn-group">
+          <span class="control-label">Organización:</span>
+          <button id="btn-v3-layout-free" class="btn-ctrl btn-v3-layout active">🪐 Gravedad Libre</button>
+          <button id="btn-v3-layout-clustered" class="btn-ctrl btn-v3-layout">🏝️ Agrupado por Tipo</button>
+          <button id="btn-v3-layout-ranked" class="btn-ctrl btn-v3-layout">📐 Ranking por Tamaño</button>
+        </div>
+
+        <div class="control-btn-group">
+          <button id="btn-v3-toggle-moon" class="btn-ctrl active">🌕 Referencia: Luna Llena (~31')</button>
+        </div>
+
+        <div class="control-btn-group">
+          <button id="btn-v3-zoom-in" class="btn-ctrl btn-icon" title="Acercar">+</button>
+          <button id="btn-v3-zoom-out" class="btn-ctrl btn-icon" title="Alejar">−</button>
+          <button id="btn-v3-zoom-reset" class="btn-ctrl btn-icon" title="Restablecer">⟲</button>
+        </div>
+      </div>
+
+      <div class="vis3-svg-wrapper">
+        <div id="vis-3"></div>
+        <div class="moon-legend-box">
+          <div class="moon-icon-sample"></div>
+          <div>
+            <strong>Luna Llena (31' de arco):</strong> Arrastra la luna o los cuerpos para comparar sus diámetros en el cielo.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         SECCIÓN 4: MOSAICO Y EXPLORADOR COMPLETO
+         ==================================================================== -->
+    <section id="section-mosaic" class="vis-section">
+      <div class="vis-header">
+        <span class="vis-tag">Catálogo Completo</span>
+        <h2 class="vis-title">Mosaico de los 110 Objetos Messier</h2>
+        <p class="vis-description">
+          Explora la galería visual completa. Ordena los astros por número, distancia cósmica, brillo aparente, tamaño en el cielo o antigüedad de descubrimiento.
+        </p>
+      </div>
+
+      <div class="mosaic-controls">
+        <div id="mosaic-counter-label" style="font-weight: 600; color: var(--text-accent);">
+          Mostrando 110 objetos celestes
+        </div>
+
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <label for="mosaic-sort-select" style="font-size: 0.85rem; color: var(--text-muted);">Ordenar por:</label>
+          <select id="mosaic-sort-select" class="mosaic-sort-select">
+            <option value="number">Número de Catálogo (M1 → M110)</option>
+            <option value="distance-asc">Distancia (Más cercanos primero)</option>
+            <option value="distance-desc">Distancia (Más lejanos primero)</option>
+            <option value="magnitude-asc">Brillo Aparente (Más brillantes primero)</option>
+            <option value="size-desc">Tamaño Angular (Más grandes primero)</option>
+            <option value="year-asc">Descubrimiento (Más antiguos primero)</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="mosaic-grid" class="mosaic-grid"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+      <p>
+        © <a href="../../../index.html">Tomás Romero Aránguiz</a> | Victor Bórquez · 2023
+      </p>
+      <p style="margin-top: 6px; font-size: 0.85rem; color: #64748b;">
+        Visualización de Información (InfoVis) · Pontificia Universidad Católica de Chile
+      </p>
+      <div>
+        <span class="antigravity-badge">
+          🚀 Edición ProyectoAntigravity · Visualización Interactiva Mejorada
+        </span>
+      </div>
+    </footer>
+
+  </div>
+
+  <!-- TOOLTIP FLOTANTE PERSONALIZADO -->
+  <div id="custom-tooltip" class="custom-tooltip"></div>
+
+  <!-- MODAL DE INSPECCIÓN DETALLADA -->
+  <div id="modal-overlay" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-dialog">
+      <button id="modal-close-btn" class="modal-close-btn" aria-label="Cerrar modal">✕</button>
+      <div class="modal-body">
+        <div class="modal-hero">
+          <div class="modal-img-frame">
+            <img id="modal-object-img" src="" alt="">
+          </div>
+          <div class="modal-header-meta">
+            <h2 id="modal-title">M31: Galaxia de Andrómeda</h2>
+            <h3 id="modal-subtitle">Galaxia · NGC 224</h3>
+          </div>
+        </div>
+
+        <div id="modal-stats-container" class="modal-stats-grid"></div>
+
+        <h4 class="modal-section-title">Contexto Astronómico & Observación</h4>
+        <div id="modal-narrative-text" class="modal-narrative"></div>
+
+        <div class="modal-actions">
+          <button id="btn-modal-jump-vis1" class="btn-jump-vis">
+            🌌 Ver Posición en Distancias Cósmicas
+          </button>
+          <button id="btn-modal-jump-vis3" class="btn-jump-vis">
+            🔭 Comparar Tamaño en la Bóveda Celeste
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SCRIPTS EN ORDEN -->
+  <script src="js/catalog-data.js"></script>
+  <script src="js/vis1-distances.js"></script>
+  <script src="js/vis2-timeline.js"></script>
+  <script src="js/vis3-sky.js"></script>
+  <script src="js/explorer.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
